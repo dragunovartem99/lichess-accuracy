@@ -1,18 +1,28 @@
-import { reactive } from 'vue'
+import { ref, reactive, computed } from "vue";
 
-export const analysis = reactive({
-	target: "",
-	games: [],
+const target = ref("");
+const games = reactive([]);
 
-	setTarget(target: any) {
-		this.target = target;
-	},
+export const addGame = (game: any) => games.push(game);
+export const setTarget = (newTarget: string) => (target.value = newTarget);
+export const targetId = computed(() => target.value.toLowerCase());
 
-	addGame(game: any) {
-		this.games.push(game);
-	},
+export const gamesDisplayed = computed(() => games);
 
-	getTargetId() {
-		return this.target.toLowerCase();
+function calcAverage({ targetId, games, key }) {
+	return games.reduce((avg, game, _, arr) => {
+		const color = game.players.white.user?.id === targetId ? "white" : "black";
+		return avg + game.players[color].analysis[key] / arr.length;
+	}, 0);
+}
+
+export const statistics = computed(() => {
+	return {
+		total: games.length,
+		inaccuracy: calcAverage({ targetId: targetId.value, games, key: "inaccuracy" }),
+		mistake: calcAverage({ targetId: targetId.value, games, key: "mistake" }),
+		blunder: calcAverage({ targetId: targetId.value, games, key: "blunder" }),
+		acpl: calcAverage({ targetId: targetId.value, games, key: "acpl" }),
+		accuracy: calcAverage({ targetId: targetId.value, games, key: "accuracy" })
 	}
 });

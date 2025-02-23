@@ -16,4 +16,15 @@
 	--diagram-border: #666 solid 2px;
 
 	font-family: "Work Sans", sans-serif;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: var(--p-surface-50);
+
+}
+
+.container {
+	max-width: 1080px;
+	margin-inline: auto;
 }

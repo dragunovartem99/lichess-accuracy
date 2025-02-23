@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { analysis } from "../analysis";
+import { targetId } from "../analysis";
 const props = defineProps(["game"]);
 
 const date = computed(() => new Intl.DateTimeFormat("en-GB").format(props.game.lastMoveAt));
@@ -19,13 +19,13 @@ const result = computed(() => {
 
 	if (!winner) return "Draw";
 
-	return props.game.players[winner].user?.id === analysis.getTargetId()
-		? `Won (${termination.value})`
-		: `Lost (${termination.value})`;
+	return props.game.players[winner].user?.id === targetId.value
+		? `Win (${termination.value})`
+		: `Loss (${termination.value})`;
 });
 
 const flipped = computed(() => {
-	return props.game.players.black.user?.id === analysis.getTargetId() ? "flipped" : null;
+	return props.game.players.black.user?.id === targetId.value ? "flipped" : null;
 });
 
 const link = computed(() => {
@@ -39,7 +39,7 @@ const link = computed(() => {
 <template>
 	<article>
 		<div>
-			<h2>{{ game.players.white.user.name }}</h2>
+			<h2>{{ game.players.white.user?.name }}</h2>
 			<p>{{ game.players.white.analysis.acpl }}</p>
 		</div>
 		<a class="game" :href="link">
@@ -49,7 +49,7 @@ const link = computed(() => {
 			<p class="date">{{ date }}</p>
 		</a>
 		<div>
-			<h2>{{ game.players.black.user.name }}</h2>
+			<h2>{{ game.players.black.user?.name }}</h2>
 			<p>{{ game.players.black.analysis.acpl }}</p>
 		</div>
 	</article>
@@ -79,7 +79,7 @@ article > * {
 	top: 50%;
 	transform: translate(-50%, -50%);
 	background-color: rgba(0, 0, 0, 0.65);
-	padding: 0.4rem 0.8rem;
+	padding: 0.8rem 1.2rem;
 	z-index: 1;
 	margin: 0;
 	color: #fff;
