@@ -1,6 +1,6 @@
 <template>
 	<section>
 		<h2>Filter</h2>
-		<p>None</p>
+		<p>Max: 250 games</p>
 	</section>
 </template>

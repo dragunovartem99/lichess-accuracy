@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import TheSearch from "./TheSearch.vue";
-import { statistics } from "../analysis";
+import { statistics } from "../analysis/statistics";
 </script>
 
 <template>
@@ -44,7 +44,7 @@ import { statistics } from "../analysis";
 }
 .container-wide {
 	margin-inline: auto;
-	min-height: 80dvh;
+	min-height: min(80dvh, 600px);
 	position: relative;
 	max-width: 1280px;
 	display: grid;

@@ -36,7 +36,7 @@ const link = computed(() => {
 </script>
 
 <template>
-	<a :href="link">
+	<a :href="link" target="_blank">
 		<p class="meta">{{ rated }}{{ game.clock && "" }}</p>
 		<p class="result">{{ result }}</p>
 		<html-diagram :fen="game.lastFen" :flipped></html-diagram>

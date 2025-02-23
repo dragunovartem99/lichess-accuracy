@@ -81,7 +81,7 @@ b {
 	color: var(--p-green-600);
 }
 .negative {
-	color: var(--p-red-600);
+	color: var(--p-red-700);
 }
 
 .analysis p {

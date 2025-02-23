@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { gamesDisplayed } from "../analysis";
+import { games } from "../analysis";
 import TheGame from "./TheGame/TheGame.vue";
 </script>
 
@@ -7,7 +7,7 @@ import TheGame from "./TheGame/TheGame.vue";
 	<section>
 		<h2>Games</h2>
 		<div class="games">
-			<TheGame v-for="game of gamesDisplayed" :game />
+			<TheGame v-for="game of games" :game />
 		</div>
 	</section>
 </template>
