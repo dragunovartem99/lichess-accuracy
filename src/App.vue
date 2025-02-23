@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import HelloWorld from "./components/HelloWorld.vue";
 import TheSearch from "./components/TheSearch.vue";
+import TheGames from "./components/TheGames.vue";
 </script>
 
 <template>
 	<div>
 		<TheSearch />
+		<TheGames />
 	</div>
 </template>
 
