@@ -8,6 +8,10 @@ export function addGame(game: any) {
 	_games.push(game);
 }
 
+export function clearGames() {
+	_games.splice(0);
+}
+
 export function setTarget(newTarget: string) {
 	_target.value = newTarget;
 }

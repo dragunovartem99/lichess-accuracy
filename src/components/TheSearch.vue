@@ -7,10 +7,11 @@ import InputGroup from "primevue/inputgroup";
 import { getSuggestions } from "../api/suggestions";
 import { getGames } from "../api/getGames";
 
-import { setTarget, addGame, targetId } from "../analysis";
+import { setTarget, addGame, targetId, clearGames } from "../analysis";
 
 const value = ref("");
 const items = ref([]);
+const loading = ref(false);
 
 async function fetchUsers(event: AutoCompleteCompleteEvent) {
 	const data = await getSuggestions(event.query);
@@ -19,9 +20,11 @@ async function fetchUsers(event: AutoCompleteCompleteEvent) {
 
 function search() {
 	setTarget(value.value);
+	clearGames();
 
+	loading.value = true;
 	const onGame = (game: any) => addGame(game);
-	const onEnd = () => alert("Search ended");
+	const onEnd = () => loading.value = false;
 
 	getGames({ targetId: targetId.value, onGame, onEnd });
 }
@@ -35,13 +38,13 @@ function search() {
 		</hgroup>
 		<InputGroup>
 			<AutoComplete
-				placeholder="username"
+				placeholder="target"
 				v-model="value"
 				:suggestions="items"
 				@complete="fetchUsers"
 				force-selection
 			/>
-			<Button label="Analysis" @click="search" />
+			<Button label="Analysis" @click="search" :loading />
 		</InputGroup>
 	</div>
 </template>

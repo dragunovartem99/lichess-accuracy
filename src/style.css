@@ -31,10 +31,6 @@ html-diagram {
 	margin-inline: auto;
 }
 
-h2 {
-	margin-bottom: 1rem;
-}
-
 section + section {
 	margin-top: 1rem;
 }
