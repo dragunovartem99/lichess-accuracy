@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
+* {
+	margin: 0;
+	box-sizing: border-box;
+}
+
 @font-face {
 	font-family: "Diagram Cases";
 	src: url("/DiagramCases.woff2");
@@ -11,20 +16,25 @@
 }
 
 :root {
-	--diagram-font: "Diagram Smart";
-	--diagram-color: #000;
-	--diagram-border: #666 solid 2px;
-
 	font-family: "Work Sans", sans-serif;
 	box-sizing: border-box;
 }
 
-body {
-	background-color: var(--p-surface-50);
-
+html-diagram {
+	--diagram-font: "Diagram Cases";
+	--diagram-color: var(--p-surface-950);
+	--diagram-border: solid 5px var(--p-surface-700);
 }
 
 .container {
-	max-width: 1080px;
+	max-width: 840px;
 	margin-inline: auto;
+}
+
+h2 {
+	margin-bottom: 1rem;
+}
+
+section + section {
+	margin-top: 1rem;
 }

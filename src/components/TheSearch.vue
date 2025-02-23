@@ -35,12 +35,13 @@ function search() {
 		</hgroup>
 		<InputGroup>
 			<AutoComplete
+				placeholder="username"
 				v-model="value"
 				:suggestions="items"
 				@complete="fetchUsers"
 				force-selection
 			/>
-			<Button label="Analyze" @click="search" />
+			<Button label="Analysis" @click="search" />
 		</InputGroup>
 	</div>
 </template>

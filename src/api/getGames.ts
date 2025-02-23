@@ -8,7 +8,7 @@ type Options = {
 
 export async function getGames(options: Options) {
 	const stream = fetch(
-		`https://lichess.org/api/games/user/${options.targetId}?max=50&moves=false&lastFen=true&analysed=true&accuracy=true`,
+		`https://lichess.org/api/games/user/${options.targetId}?max=250&moves=false&lastFen=true&analysed=true&accuracy=true`,
 		{
 			headers: { Accept: "application/x-ndjson" },
 		}

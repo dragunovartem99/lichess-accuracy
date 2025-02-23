@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { gamesDisplayed } from "../analysis";
-import GameCard from "./GameCard.vue";
+import TheGame from "./TheGame/TheGame.vue";
 </script>
 
 <template>
 	<section>
 		<h2>Games</h2>
 		<div class="games">
-			<GameCard v-for="game of gamesDisplayed" :game />
+			<TheGame v-for="game of gamesDisplayed" :game />
 		</div>
 	</section>
 </template>
