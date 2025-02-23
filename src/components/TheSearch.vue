@@ -6,7 +6,7 @@ import Button from "primevue/button";
 import InputGroup from "primevue/inputgroup";
 import { getSuggestions } from "../api/suggestions";
 import { getGames } from "../api/getGames";
-import { results } from "../resultsSingleton";
+import { analysis } from "../analysis";
 
 const value = ref("");
 const items = ref([]);
@@ -17,10 +17,10 @@ async function fetchUsers(event: AutoCompleteCompleteEvent) {
 }
 
 function search() {
-	results.setTarget(value.value);
+	analysis.setTarget(value.value);
 
-	const targetId = results.getTargetId();
-	const onGame = (game: any) => results.pushGame(game);
+	const targetId = analysis.getTargetId();
+	const onGame = (game: any) => analysis.addGame(game);
 	const onEnd = () => alert("Search ended");
 
 	getGames({ targetId, onGame, onEnd });

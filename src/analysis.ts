@@ -1,6 +1,6 @@
 import { reactive } from 'vue'
 
-export const results = reactive({
+export const analysis = reactive({
 	target: "",
 	games: [],
 
@@ -8,7 +8,7 @@ export const results = reactive({
 		this.target = target;
 	},
 
-	pushGame(game: any) {
+	addGame(game: any) {
 		this.games.push(game);
 	},
 

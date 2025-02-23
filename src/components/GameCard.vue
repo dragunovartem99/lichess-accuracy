@@ -1,49 +1,90 @@
 <script setup lang="ts">
 import { computed } from "vue";
+import { analysis } from "../analysis";
 const props = defineProps(["game"]);
+
 const date = computed(() => new Intl.DateTimeFormat("en-GB").format(props.game.lastMoveAt));
-const rated = computed(() => props.game.rated ? "Rated" : "Casual")
+const rated = computed(() => (props.game.rated ? "Rated" : "Casual"));
+
+const termination = computed(() => {
+	return {
+		outoftime: "time",
+		mate: "mate",
+		resign: "resign",
+	}[props.game.status];
+});
+
+const result = computed(() => {
+	const { winner } = props.game;
+
+	if (!winner) return "Draw";
+
+	return props.game.players[winner].user?.id === analysis.getTargetId()
+		? `Won (${termination.value})`
+		: `Lost (${termination.value})`;
+});
+
+const flipped = computed(() => {
+	return props.game.players.black.user?.id === analysis.getTargetId() ? "flipped" : null;
+});
+
+const link = computed(() => {
+	const gameLink = `https://lichess.org/${props.game.id}/`;
+	const suffix = flipped.value ? "black" : "";
+
+	return gameLink + suffix;
+});
 </script>
 
 <template>
 	<article>
-		<div class="game">
-			{{ game.winner }}
+		<div>
+			<h2>{{ game.players.white.user.name }}</h2>
+			<p>{{ game.players.white.analysis.acpl }}</p>
+		</div>
+		<a class="game" :href="link">
 			<p class="meta">{{ rated }}{{ game.clock && "" }}</p>
-			<p class="result">{{ game.status }}</p>
+			<p class="result">{{ result }}</p>
+			<html-diagram :fen="game.lastFen" :flipped></html-diagram>
 			<p class="date">{{ date }}</p>
-			<html-diagram :fen="game.lastFen"></html-diagram>
+		</a>
+		<div>
+			<h2>{{ game.players.black.user.name }}</h2>
+			<p>{{ game.players.black.analysis.acpl }}</p>
 		</div>
 	</article>
 </template>
 
 <style scoped>
 article {
-	max-width: 300px;
-
+	background-color: #f7f7f7;
+	display: flex;
+}
+article > * {
+	flex: 1;
 }
 .game {
 	position: relative;
-	background-color: #aaa;
+	display: block;
+	text-decoration: none;
+	max-width: 320px;
 }
-p {
+.meta {
+	margin: 0;
+}
+.result {
 	font-weight: bold;
 	position: absolute;
 	left: 50%;
+	top: 50%;
 	transform: translate(-50%, -50%);
-	background-color: rgba(255, 255, 255, 0.75);
+	background-color: rgba(0, 0, 0, 0.65);
 	padding: 0.4rem 0.8rem;
 	z-index: 1;
 	margin: 0;
-	color: #000;
-}
-.meta {
-	top: 15%;
-}
-.result {
-	top: 50%;
+	color: #fff;
 }
 .date {
-	top: 85%;
+	margin: 0;
 }
 </style>
