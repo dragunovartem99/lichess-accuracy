@@ -38,7 +38,7 @@ function search() {
 		</hgroup>
 		<InputGroup>
 			<AutoComplete
-				placeholder="target"
+				placeholder="target username"
 				v-model="value"
 				:suggestions="items"
 				@complete="fetchUsers"

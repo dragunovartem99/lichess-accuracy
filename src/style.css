@@ -10,11 +10,6 @@
 	src: url("/DiagramCases.woff2");
 }
 
-@font-face {
-	font-family: "Diagram Smart";
-	src: url("/DiagramSmart.woff2");
-}
-
 :root {
 	font-family: "Work Sans", sans-serif;
 	box-sizing: border-box;
@@ -29,6 +24,10 @@ html-diagram {
 .container {
 	max-width: 840px;
 	margin-inline: auto;
+}
+
+h2 {
+	margin-bottom: 1rem;
 }
 
 section + section {

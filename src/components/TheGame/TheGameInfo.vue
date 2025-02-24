@@ -39,7 +39,7 @@ const link = computed(() => {
 	<a :href="link" target="_blank">
 		<p class="meta">{{ rated }}{{ game.clock && "" }}</p>
 		<p class="result">{{ result }}</p>
-		<html-diagram :fen="game.lastFen" :flipped></html-diagram>
+		<html-diagram :fen="game.lastFen" :flipped :key="game.id"></html-diagram>
 		<p class="date">{{ date }}</p>
 	</a>
 </template>
@@ -55,7 +55,8 @@ a {
 p {
 	text-align: center;
 }
-.meta, .date {
+.meta,
+.date {
 	background-color: var(--p-surface-700);
 	color: var(--p-surface-100);
 }
@@ -71,7 +72,7 @@ p {
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
-	background-color: #111112aa;
+	background-color: #00000088;
 	padding: 0.8rem 1.2rem;
 	z-index: 1;
 	color: var(--p-surface-100);

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { games } from "../store";
+import { sortedGames } from "../modules/sort";
 import TheGame from "./TheGame/TheGame.vue";
 import TheSort from "./TheSort.vue";
 </script>
@@ -11,7 +11,7 @@ import TheSort from "./TheSort.vue";
 			<TheSort />
 		</div>
 		<div class="games">
-			<TheGame v-for="game of games" :game />
+			<TheGame v-for="game of sortedGames" :game :key="game.id" />
 		</div>
 	</section>
 </template>
@@ -21,6 +21,6 @@ import TheSort from "./TheSort.vue";
 	margin-bottom: 2rem;
 }
 .controls {
-	margin-block: 1rem 2rem;
+	margin-bottom: 2rem;
 }
 </style>
