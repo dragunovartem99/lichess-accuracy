@@ -1,8 +1,8 @@
 import { ref } from "vue"
 
-export const tree = ref([
-	{ key: "newer", label: "Newer" },
-	{ key: "older", label: "Older" },
+export const options = ref([
+	{ key: "latest", label: "Latest games" },
+	{ key: "oldest", label: "Oldest games" },
 	{
 		key: "good",
 		label: "Good",

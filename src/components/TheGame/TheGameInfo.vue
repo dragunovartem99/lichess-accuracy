@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { targetId } from "../../analysis";
+import { targetId } from "../../store";
 const props = defineProps(["game"]);
 const date = computed(() => new Intl.DateTimeFormat("en-GB").format(props.game.lastMoveAt));
 const rated = computed(() => (props.game.rated ? "Rated" : "Casual"));

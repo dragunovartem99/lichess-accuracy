@@ -7,7 +7,7 @@ import InputGroup from "primevue/inputgroup";
 import { getSuggestions } from "../api/suggestions";
 import { getGames } from "../api/getGames";
 
-import { setTarget, addGame, targetId, clearGames } from "../analysis";
+import { setTarget, addGame, targetId, clearGames } from "../store";
 
 const value = ref("");
 const items = ref([]);

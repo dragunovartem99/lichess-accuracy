@@ -1,5 +1,5 @@
 import { computed } from "vue";
-import { targetId, games } from "./index.ts";
+import { targetId, games } from "../../store";
 import { calcAverage } from "./calcAverage";
 
 export const statistics = computed(() => {

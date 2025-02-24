@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import TheSearch from "./TheSearch.vue";
-import { statistics } from "../analysis/statistics";
+import { statistics } from "../modules/statistics";
 </script>
 
 <template>

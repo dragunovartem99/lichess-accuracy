@@ -1,14 +1,17 @@
 <script setup lang="ts">
 import TreeSelect from "primevue/treeselect";
+import IftaLabel from 'primevue/iftalabel';
 import { ref } from "vue";
-import { tree } from "../sort/tree";
+import { options } from "../modules/sort";
 
-const value = ref(null);
-
+const value = ref({ latest: true });
 </script>
 
 <template>
 	<div>
-		<TreeSelect placeholder="Sort games" :options="tree" v-model="value" />
+		<IftaLabel>
+			<TreeSelect input-id="sort" :options v-model="value" />
+			<label for="sort">Sort</label>
+		</IftaLabel>
 	</div>
 </template>
