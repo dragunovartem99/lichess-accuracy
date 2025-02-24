@@ -28,8 +28,8 @@ const flipped = computed(() => {
 });
 
 const link = computed(() => {
-	const gameLink = `https://lichess.org/${props.game.id}/`;
-	const suffix = flipped.value ? "black" : "";
+	const gameLink = `https://lichess.org/${props.game.id}`;
+	const suffix = flipped.value ? "/black" : "";
 
 	return gameLink + suffix;
 });
