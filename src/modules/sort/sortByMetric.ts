@@ -1,5 +1,5 @@
 export function sortByMetric({ games, targetId, who, metric, order }: any) {
-	return games.toSorted((a, b) => {
+	return games.toSorted((a: any, b: any) => {
 		let colorA;
 		let colorB;
 

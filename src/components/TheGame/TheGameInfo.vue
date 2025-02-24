@@ -6,11 +6,13 @@ const date = computed(() => new Intl.DateTimeFormat("en-GB").format(props.game.l
 const rated = computed(() => (props.game.rated ? "Rated" : "Casual"));
 
 const termination = computed(() => {
-	return {
+	const options = {
 		outoftime: "time",
 		mate: "mate",
 		resign: "resign",
-	}[props.game.status];
+	};
+
+	return options[props.game.status as keyof typeof options];
 });
 
 const result = computed(() => {
