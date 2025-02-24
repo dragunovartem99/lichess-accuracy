@@ -10,15 +10,22 @@ import TheSort from "./TheSort.vue";
 		<div class="controls">
 			<TheSort />
 		</div>
-		<div class="games">
+		<div class="games" v-if="sortedGames.length">
 			<TheGame v-for="game of sortedGames" :game :key="game.id" />
 		</div>
 	</section>
 </template>
 
 <style scoped>
+.games {
+	--border: 3px solid var(--p-surface-200);
+	border: var(--border);
+	border-bottom: none;
+	margin-bottom: 3rem;
+	box-shadow: 0 5px 25px #00000011; 
+}
 .games > * {
-	margin-bottom: 2rem;
+	border-bottom: var(--border);
 }
 .controls {
 	margin-bottom: 2rem;
