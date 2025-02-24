@@ -52,19 +52,17 @@ a {
 	color: inherit;
 	max-width: 220px;
 }
+a:hover .result {
+	opacity: 0;
+}
 p {
 	text-align: center;
 }
 .meta,
 .date {
-	background-color: var(--p-surface-700);
+	background-color: var(--p-surface-800);
 	color: var(--p-surface-100);
-}
-.meta {
-	padding-top: 0.3rem;
-}
-.date {
-	padding-bottom: 0.3rem;
+	padding-block: 0.3rem;
 }
 .result {
 	font-weight: 500;
@@ -76,5 +74,8 @@ p {
 	padding: 0.8rem 1.2rem;
 	z-index: 1;
 	color: var(--p-surface-100);
+}
+html-diagram {
+	border-inline: 3px solid var(--p-surface-600);
 }
 </style>
