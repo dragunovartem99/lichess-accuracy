@@ -102,7 +102,7 @@ b {
 	border-radius: 50%;
 }
 .blunder .point {
-	background-color: var(--p-red-700);
+	background-color: var(--p-red-600);
 }
 .mistake .point {
 	background-color: var(--p-yellow-500);
