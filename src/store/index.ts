@@ -16,10 +16,4 @@ function setTarget(newTarget: string) {
 	_target.value = newTarget;
 }
 
-export {
-	targetId,
-	games,
-	addGame,
-	clearGames,
-	setTarget
-}
+export { targetId, games, addGame, clearGames, setTarget };

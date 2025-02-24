@@ -25,7 +25,7 @@ function search() {
 
 	loading.value = true;
 	const onGame = (game: any) => addGame(game);
-	const onEnd = () => loading.value = false;
+	const onEnd = () => (loading.value = false);
 
 	getGames({ targetId: targetId.value, onGame, onEnd });
 }

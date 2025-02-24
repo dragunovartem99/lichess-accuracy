@@ -4,4 +4,3 @@ export function calcAverage({ games, targetId, key }: any) {
 		return avg + game.players[color].analysis[key] / arr.length;
 	}, 0);
 }
-
