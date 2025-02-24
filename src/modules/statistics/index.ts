@@ -3,8 +3,9 @@ import { targetId, games } from "../../store";
 import { calcAverage } from "./calcAverage";
 
 export const statistics = computed(() => {
+	const gameList = games.value;
 	return {
-		total: games.value.length,
+		total: gameList.length,
 		inaccuracy: calcAverage({
 			key: "inaccuracy",
 			targetId: targetId.value,

@@ -14,6 +14,7 @@ const items = ref([]);
 const loading = ref(false);
 
 async function fetchUsers(event: AutoCompleteCompleteEvent) {
+	if (event.query.length < 3) return;
 	const data = await getSuggestions(event.query);
 	items.value = data.result.map((obj: UserSuggestion) => obj.name);
 }
