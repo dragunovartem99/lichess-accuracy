@@ -14,7 +14,6 @@ import TheGameInfo from "./TheGameInfo.vue";
 
 <style scoped>
 article {
-	background-color: var(--p-surface-100);
 	display: flex;
 }
 article > * {

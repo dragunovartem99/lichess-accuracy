@@ -40,13 +40,25 @@ import { statistics } from "../modules/statistics";
 
 <style scoped>
 .hero {
-	background-color: var(--p-surface-100);
+	position: relative;
+	background-color: var(--p-surface-400);
+	overflow: hidden;
+}
+.hero::before {
+	content: "";
+	display: block;
+	width: min(100vw, 1440px);
+	height: min(100vw, 1440px);
+	border-radius: 50%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: var(--p-surface-300);
 }
 .container-wide {
-	margin-inline: auto;
 	min-height: min(80dvh, 600px);
 	position: relative;
-	max-width: 1280px;
 	display: grid;
 	place-items: center;
 }
@@ -65,33 +77,33 @@ b {
 	font-size: 3.2rem;
 }
 .ball:nth-of-type(1) {
-	top: 0;
+	top: 1%;
 	left: 0;
-	background-color: var(--p-surface-300);
+	background-color: var(--p-surface-100);
 	color: var(--p-surface-700);
 }
 .ball:nth-of-type(2) {
-	top: 0;
+	top: 1%;
 	left: 45%;
 	background-color: var(--p-surface-600);
 }
 .ball:nth-of-type(3) {
-	top: 0;
+	top: 1%;
 	right: 0;
 	background-color: var(--p-surface-700);
 }
 .ball:nth-of-type(4) {
-	bottom: 0;
+	bottom: 1%;
 	left: 0;
 	background-color: var(--p-cyan-500);
 }
 .ball:nth-of-type(5) {
-	bottom: 0;
+	bottom: 1%;
 	left: 45%;
 	background-color: var(--p-yellow-500);
 }
 .ball:nth-of-type(6) {
-	bottom: 0;
+	bottom: 1%;
 	right: 0;
 	background-color: var(--p-red-700);
 }

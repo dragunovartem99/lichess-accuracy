@@ -15,14 +15,34 @@
 	box-sizing: border-box;
 }
 
+#app {
+	background-color: var(--p-surface-100);
+	min-height: 100dvh;
+	display: flex;
+	flex-direction: column;
+}
+
+footer {
+	margin-top: auto;
+}
+
 html-diagram {
 	--diagram-font: "Diagram Cases";
 	--diagram-color: #000;
 }
 
+.container, .container-wide {
+	width: 100%;
+	margin-inline: auto;
+	padding-inline: 2rem;
+}
+
 .container {
 	max-width: 840px;
-	margin-inline: auto;
+}
+
+.container-wide {
+	max-width: 1280px;
 }
 
 h2 {
