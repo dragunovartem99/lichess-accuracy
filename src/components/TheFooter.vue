@@ -62,8 +62,6 @@ p,
 }
 a {
 	display: block;
-	text-decoration: none;
-	color: inherit;
 }
 a + a {
 	margin-top: 0.3rem;

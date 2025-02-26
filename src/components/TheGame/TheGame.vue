@@ -29,6 +29,8 @@ const flipped = computed(() =>
 article {
 	display: grid;
 	grid-template-columns: 45% auto;
+	border-radius: var(--p-border-radius-md);
+	overflow: hidden;
 }
 .meta {
 	grid-column: 1 / -1;

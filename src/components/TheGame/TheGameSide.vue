@@ -17,14 +17,18 @@ const ratingDiff = computed(() => {
 		? `+${props.player.ratingDiff}`
 		: props.player.ratingDiff;
 });
+
+const link = computed(
+	() => props.player.user?.id && "https://lichess.org/@/" + props.player.user.id
+);
 </script>
 
 <template>
 	<div class="side">
 		<div>
-			<p class="name">
+			<a class="name" :href="link" target="_blank">
 				{{ player.user?.name }}
-			</p>
+			</a>
 			<p class="rating">
 				{{ rating }}
 				<span :class="ratingDiffDirection" v-if="ratingDiff">{{ ratingDiff }}</span>
@@ -61,9 +65,9 @@ const ratingDiff = computed(() => {
 }
 .name {
 	font-weight: 600;
-	display: flex;
+	display: inline-flex;
 	align-items: center;
-	gap: 0.3em;
+	gap: 0.25em;
 }
 .name::before {
 	content: "";
@@ -115,6 +119,7 @@ b {
 @media (min-width: 640px) {
 	.name {
 		font-size: 1.4rem;
+		margin-bottom: 0.1rem;
 	}
 	.rating {
 		font-size: 1.2rem;

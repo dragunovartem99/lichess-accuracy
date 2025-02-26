@@ -18,10 +18,6 @@
 :root {
 	font-family: "Work Sans", sans-serif;
 	box-sizing: border-box;
-	--sm: 640px;
-}
-
-html-diagram {
 	--diagram-font: "Diagram Smart";
 	--diagram-color: #000;
 }
@@ -53,6 +49,15 @@ footer {
 
 h2 {
 	margin-bottom: 1rem;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+a:hover {
+	color: var(--p-cyan-500);
 }
 
 section {

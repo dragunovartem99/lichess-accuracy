@@ -34,7 +34,7 @@ section {
 	margin-bottom: 2rem;
 }
 
-@media (min-width: var(--sm)) {
+@media (min-width: 640px) {
 	.games {
 		margin-inline: 0;
 	}
