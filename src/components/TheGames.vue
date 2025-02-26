@@ -22,15 +22,13 @@ section {
 	margin-bottom: 3rem;
 }
 .games {
-	--border: 3px solid var(--p-surface-300);
-	border: var(--border);
 	border-bottom: none;
 	margin-inline: -2rem;
 }
+
 .games > * {
-	border-bottom: var(--border);
 	margin-bottom: 2rem;
-	box-shadow: 0 5px 25px #00000011;
+	box-shadow: 0 5px 25px #00000022;
 }
 .controls {
 	margin-bottom: 2rem;

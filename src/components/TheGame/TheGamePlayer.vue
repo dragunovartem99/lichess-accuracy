@@ -21,12 +21,18 @@ const ratingDiff = computed(() => {
 
 <template>
 	<div class="player">
-		<div class="head">
+		<div>
 			<p class="name">{{ player.user?.name }}</p>
-			<p class="rating">{{ rating }}</p>
-			<p :class="ratingDiffDirection" v-if="ratingDiff">{{ ratingDiff }}</p>
+			<p class="rating">
+				{{ rating }}
+				<span :class="ratingDiffDirection" v-if="ratingDiff">{{ ratingDiff }}</span>
+			</p>
 		</div>
-		<div class="analysis">
+		<div class="acpl">
+			<b>{{ player.analysis.acpl }}</b>
+			<p>ACPL</p>
+		</div>
+		<div v-if="false" class="analysis">
 			<p class="blunder" v-if="player.analysis.blunder">
 				<span class="point" v-for="_ of player.analysis.blunder"></span>
 			</p>
@@ -40,38 +46,19 @@ const ratingDiff = computed(() => {
 				<span class="point"></span><span>{{ player.analysis.accuracy }}%</span>accuracy
 			</p>
 		</div>
-		<div class="acpl">
-			<p>ACPL</p>
-			<b>{{ player.analysis.acpl }}</b>
-		</div>
 	</div>
 </template>
 
 <style scoped>
 .player {
-	padding: 1rem;
-	display: grid;
-	grid-template-columns: 1fr auto;
-	align-content: space-between;
-	align-items: end;
+	display: flex;
+	flex-direction: column;
 }
-.head,
 .acpl {
-	text-align: right;
-}
-.player.black .head,
-.player.black .acpl {
-	text-align: left;
-}
-.player.black .analysis {
-	order: 1;
-}
-.head {
-	grid-column: 1 / -1;
+	margin-top: auto;
 }
 .name {
 	font-weight: 600;
-	font-size: 1.2rem;
 }
 b {
 	font-size: 2.4rem;

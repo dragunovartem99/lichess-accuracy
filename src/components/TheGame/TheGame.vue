@@ -1,21 +1,27 @@
 <script setup lang="ts">
-const props = defineProps(["game"]);
 import { computed } from "vue";
+import { targetId } from "../../store";
+import TheGamePlayer from "./TheGamePlayer.vue";
 import TheGameInfo from "./TheGameInfo.vue";
+
+const props = defineProps(["game"]);
+
 const date = computed(() => new Intl.DateTimeFormat("en-GB").format(props.game.lastMoveAt));
+
+const flipped = computed(() =>
+	props.game.players.black.user?.id === targetId.value ? "flipped" : null
+);
 </script>
 
 <template>
 	<article>
 		<div class="meta">
 			<p>{{ date }}</p>
-			<p>Tournament</p>
+			<p>Rated</p>
 		</div>
-		<TheGameInfo :game class="info" />
-		<div class="white">White</div>
-		<div class="black">Black</div>
-		<!-- <TheGamePlayer :player="game.players.white" class="white" /> -->
-		<!--<TheGamePlayer :player="game.players.black" class="black" /> -->
+		<TheGameInfo :game :flipped class="info" />
+		<TheGamePlayer :player="game.players.white" class="white" />
+		<TheGamePlayer :player="game.players.black" class="black" />
 	</article>
 </template>
 
@@ -39,7 +45,7 @@ article > * {
 	padding: 0.5rem;
 }
 .white {
-	border-bottom: var(--border);
+	border-bottom: 3px dashed var(--p-surface-300);
 }
 .info {
 	grid-row: 2 / 4;

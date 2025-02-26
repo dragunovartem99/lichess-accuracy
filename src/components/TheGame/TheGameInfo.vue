@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { targetId } from "../../store";
-const props = defineProps(["game"]);
+const props = defineProps(["game", "flipped"]);
 
 const termination = computed(() => {
 	// https://github.com/lichess-org/scalachess/blob/0a7d6f2c63b1ca06cd3c958ed3264e738af5c5f6/src/main/scala/Status.scala#L16-L28
@@ -26,25 +26,20 @@ const result = computed(() => {
 		: "Draw";
 });
 
-const flipped = computed(() => {
-	return props.game.players.black.user?.id === targetId.value ? "flipped" : null;
-});
-
 const link = computed(() => {
 	const gameLink = `https://lichess.org/${props.game.id}`;
-	const suffix = flipped.value ? "/black" : "";
-
+	const suffix = props.flipped ? "/black" : "";
 	return gameLink + suffix;
 });
 </script>
 
 <template>
 	<figure>
-		<p>{{ result }}</p>
+		<p>{{ termination }}</p>
 		<a :href="link" target="_blank">
 			<html-diagram :fen="game.lastFen" :flipped :key="game.id"></html-diagram>
 		</a>
-		<p>{{ termination }}</p>
+		<p>{{ result }}</p>
 	</figure>
 </template>
 
@@ -62,7 +57,8 @@ p {
 	text-align: center;
 	background-color: var(--p-surface-800);
 	color: var(--p-surface-100);
-	padding-block: 0.4rem;
 	font-weight: 500;
+	height: 28px;
+	line-height: 28px;
 }
 </style>
