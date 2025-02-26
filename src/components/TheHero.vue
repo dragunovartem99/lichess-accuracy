@@ -31,7 +31,7 @@ import TheBalls from "./TheBalls.vue";
 	background-color: var(--p-surface-300);
 }
 .container-wide {
-	min-height: min(80dvh, 600px);
+	min-height: min(80vh, 600px);
 	position: relative;
 	display: grid;
 	place-items: center;

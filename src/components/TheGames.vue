@@ -10,10 +10,19 @@ import TheSort from "./TheSort.vue";
 		<div class="controls">
 			<TheSort />
 		</div>
-		<div class="games" v-if="sortedGames.length">
-			<TheGame v-for="game of sortedGames" :game :key="game.id" />
-		</div>
-		<div class="no-games" v-else>The game list is empty</div>
+		<DynamicScroller
+			v-if="sortedGames.length"
+			:items="sortedGames"
+			:min-item-size="310"
+			class="games"
+		>
+			<template v-slot="{ item: game, index, active }">
+				<DynamicScrollerItem :item="game" :active="active" :data-index="index">
+					<div class="game"><TheGame :game :key="game.id" /></div>
+				</DynamicScrollerItem>
+			</template>
+		</DynamicScroller>
+		<p v-else>The game list is empty</p>
 	</section>
 </template>
 
@@ -21,22 +30,28 @@ import TheSort from "./TheSort.vue";
 section {
 	margin-bottom: 3rem;
 }
-.games {
-	border-bottom: none;
-	margin-inline: -2rem;
-}
 
-.games > * {
-	margin-bottom: 2rem;
-	box-shadow: 0 5px 25px #00000022;
-}
 .controls {
 	margin-bottom: 2rem;
 }
 
+.games {
+	border-bottom: none;
+	margin-inline: -1.4rem;
+	height: 100vh;
+}
+
+.game {
+	padding-bottom: 2rem;
+}
+
+.game > * {
+	box-shadow: 0 10px 20px #00000022;
+}
+
 @media (min-width: 640px) {
-	.games {
-		margin-inline: 0;
+	.game {
+		padding-inline: 2rem;
 	}
 }
 </style>

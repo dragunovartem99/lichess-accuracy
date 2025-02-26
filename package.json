@@ -30,7 +30,8 @@
 		"html-diagram": "^0.3.2",
 		"prettier": "^3.5.2",
 		"primevue": "^4.2.5",
-		"vue": "^3.5.13"
+		"vue": "^3.5.13",
+		"vue-virtual-scroller": "^2.0.0-beta.8"
 	},
 	"devDependencies": {
 		"@dragunovartem99/prettier-config": "^1.2.0",
