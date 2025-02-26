@@ -10,8 +10,6 @@ import { definePreset } from "@primeuix/themes";
 
 // HTMLDiagram
 import { HTMLDiagram } from "html-diagram";
-import "vue-virtual-scroller/dist/vue-virtual-scroller.css";
-import VueVirtualScroller from "vue-virtual-scroller";
 
 // Virtual Scroller
 // @ts-ignore
