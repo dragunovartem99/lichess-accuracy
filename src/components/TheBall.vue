@@ -24,11 +24,12 @@ defineProps(["content"]);
 	inset: 0;
 	background-color: var(--ball-bg);
 	border-radius: 50%;
-    animation: float-1 4s linear infinite;
+	animation: float-1 4s linear infinite;
 	box-shadow: 0 0 25px #00000011;
 	animation: var(--ball-animation);
 }
-b, span {
+b,
+span {
 	z-index: 1;
 	color: var(--ball-text);
 }

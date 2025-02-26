@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import TheSearch from "./TheSearch.vue";
-import TheBalls from "./TheBalls.vue"
+import TheBalls from "./TheBalls.vue";
 </script>
 
 <template>
