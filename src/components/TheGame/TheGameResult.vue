@@ -44,26 +44,25 @@ const link = computed(() => {
 </template>
 
 <style scoped>
-a {
-	position: relative;
-	display: block;
-	text-decoration: none;
-	color: inherit;
+figure {
+	display: flex;
+	flex-direction: column;
 }
 html-diagram {
 	border-inline: 3px solid var(--p-surface-800);
 }
 p {
-	text-align: center;
 	background-color: var(--p-surface-800);
 	color: var(--p-surface-100);
 	font-weight: 500;
-	padding-block: 0.4em;
+	flex: 1;
+	padding-block: 0.5em;
+	display: grid;
+	place-items: center;
 }
 @media (min-width: 640px) {
 	p {
 		font-size: 1.2rem;
-		padding-block: 0.6em;
 	}
 }
 </style>

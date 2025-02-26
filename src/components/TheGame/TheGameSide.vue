@@ -25,7 +25,7 @@ const link = computed(
 
 <template>
 	<div class="side">
-		<div>
+		<div class="player">
 			<a class="name" :href="link" target="_blank">
 				{{ player.user?.name }}
 			</a>
@@ -38,18 +38,15 @@ const link = computed(
 			<b>{{ player.analysis.acpl }}</b>
 			<p>ACPL</p>
 		</div>
-		<div v-if="false" class="analysis">
-			<p class="blunder" v-if="player.analysis.blunder">
-				<span class="point" v-for="_ of player.analysis.blunder"></span>
-			</p>
-			<p class="mistake" v-if="player.analysis.mistake">
-				<span class="point" v-for="_ of player.analysis.mistake"></span>
-			</p>
-			<p class="inaccuracy" v-if="player.analysis.inaccuracy">
-				<span class="point" v-for="_ of player.analysis.inaccuracy"></span>
-			</p>
+		<div class="analysis">
+			<template v-for="entry of ['blunder', 'mistake', 'inaccuracy']">
+				<p class="point" :class="entry" v-if="player.analysis[entry]">
+					{{ "•".repeat(player.analysis[entry]) }}
+				</p>
+			</template>
 			<p class="accuracy">
-				<span class="point"></span><span>{{ player.analysis.accuracy }}%</span>accuracy
+				<span>acc. {{ player.analysis.accuracy }}%</span>
+				<span class="point">•</span>
 			</p>
 		</div>
 	</div>
@@ -57,11 +54,14 @@ const link = computed(
 
 <style scoped>
 .side {
-	display: flex;
-	flex-direction: column;
+	display: grid;
+	grid-template-columns: auto 1fr;
+	flex-wrap: wrap;
+	column-gap: 0.5rem;
+	justify-content: space-between;
 }
-.acpl {
-	margin-top: auto;
+.player {
+	grid-column: 1/-1;
 }
 .name {
 	font-weight: 600;
@@ -77,45 +77,45 @@ const link = computed(
 	height: 0.8em;
 	border-radius: 50%;
 }
-b {
-	font-size: 2.4rem;
-	line-height: 1;
-}
 .positive {
 	color: var(--p-green-600);
 }
 .negative {
 	color: var(--p-red-700);
 }
-
-.analysis p {
-	display: flex;
-	align-items: center;
-	gap: 0.25rem;
-	min-height: 1.2rem;
-	flex-wrap: wrap;
+.acpl,
+.analysis {
+	margin-top: auto;
 }
-.black .analysis p {
-	flex-direction: row-reverse;
+b {
+	font-size: 2.4rem;
+	line-height: 1;
+}
+.analysis p {
+	line-height: 1.1rem;
+	text-align: right;
 }
 .point {
-	display: block;
-	width: 0.9rem;
-	height: 0.9rem;
-	border-radius: 50%;
+	font-size: 3.5rem;
+	line-break: anywhere;
+	line-height: 0;
+	letter-spacing: -0.4rem;
 }
-.blunder .point {
-	background-color: var(--p-red-600);
+.blunder {
+	color: var(--p-red-600);
 }
-.mistake .point {
-	background-color: var(--p-yellow-500);
+.mistake {
+	color: var(--p-yellow-500);
 }
-.inaccuracy .point {
-	background-color: var(--p-cyan-500);
+.inaccuracy {
+	color: var(--p-cyan-500);
 }
-.accuracy .point {
-	background-color: var(--p-neutral-700);
+.accuracy {
+	display: flex;
+	justify-content: end;
+	align-items: center;
 }
+
 @media (min-width: 640px) {
 	.name {
 		font-size: 1.4rem;
@@ -123,6 +123,16 @@ b {
 	}
 	.rating {
 		font-size: 1.2rem;
+	}
+	.analysis {
+		font-size: 1.2rem;
+	}
+	.analysis p {
+		line-height: 1.5rem;
+	}
+	.point {
+		font-size: 4.5rem;
+		letter-spacing: -0.55rem;
 	}
 }
 </style>

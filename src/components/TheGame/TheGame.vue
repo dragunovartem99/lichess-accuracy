@@ -24,7 +24,7 @@ const flipped = computed(() =>
 <style scoped>
 article {
 	display: grid;
-	grid-template-columns: 45% auto;
+	grid-template-columns: auto 1fr;
 	border-radius: var(--p-border-radius-md);
 	overflow: hidden;
 }
@@ -35,6 +35,7 @@ article {
 .result {
 	grid-row: 2 / 4;
 	order: -2;
+	width: min(310px, 45vw);
 }
 .side {
 	padding: 0.5rem;
