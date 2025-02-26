@@ -1,4 +1,4 @@
-# <img src="public/logo.svg" width="30" alt="Logo of Lichess Accuracy"> Lichess Accuracy 
+# <img src="public/logo.svg" width="30" alt="Logo of Lichess Accuracy"> Lichess Accuracy
 
 Tool for collecting analyzed games from Lichess.org, with focus on accuracy metrics.
 

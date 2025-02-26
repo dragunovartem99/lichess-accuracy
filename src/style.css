@@ -6,6 +6,11 @@
 }
 
 @font-face {
+	font-family: "Diagram Smart";
+	src: url("/DiagramSmart.woff2");
+}
+
+@font-face {
 	font-family: "Diagram Cases";
 	src: url("/DiagramCases.woff2");
 }
@@ -13,22 +18,49 @@
 :root {
 	font-family: "Work Sans", sans-serif;
 	box-sizing: border-box;
+	--diagram-font: "Diagram Smart";
+	--diagram-color: #000;
 }
 
-html-diagram {
-	--diagram-font: "Diagram Cases";
-	--diagram-color: #000;
+#app {
+	background-color: var(--p-surface-100);
+	min-height: 100dvh;
+	display: flex;
+	flex-direction: column;
+}
+
+footer {
+	margin-top: auto;
+}
+
+.container,
+.container-wide {
+	width: 100%;
+	margin-inline: auto;
+	padding-inline: 2rem;
 }
 
 .container {
 	max-width: 840px;
-	margin-inline: auto;
+}
+
+.container-wide {
+	max-width: 1280px;
 }
 
 h2 {
 	margin-bottom: 1rem;
 }
 
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+a:hover {
+	color: var(--p-cyan-500);
+}
+
 section {
-	margin-bottom: 1rem;
+	margin-bottom: 2rem;
 }
