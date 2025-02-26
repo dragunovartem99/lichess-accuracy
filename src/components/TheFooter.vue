@@ -38,7 +38,7 @@
 
 <style scoped>
 footer {
-	background-color: var(--p-surface-700);
+	background-color: var(--p-surface-800);
 	color: var(--p-surface-100);
 	padding-block: 3rem;
 }

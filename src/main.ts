@@ -5,6 +5,8 @@ import "./style.css";
 import App from "./App.vue";
 import { definePreset } from "@primeuix/themes";
 import { HTMLDiagram } from "html-diagram";
+import "vue-virtual-scroller/dist/vue-virtual-scroller.css";
+import VueVirtualScroller from "vue-virtual-scroller";
 
 const myPreset = definePreset(Aura, {
 	semantic: {
@@ -46,4 +48,5 @@ customElements.define("html-diagram", HTMLDiagram);
 
 createApp(App)
 	.use(PrimeVue, { theme: { preset: myPreset, options: { darkModeSelector: false } } })
+	.use(VueVirtualScroller)
 	.mount("#app");
