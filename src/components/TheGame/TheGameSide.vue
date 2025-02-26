@@ -20,9 +20,11 @@ const ratingDiff = computed(() => {
 </script>
 
 <template>
-	<div class="player">
+	<div class="side">
 		<div>
-			<p class="name">{{ player.user?.name }}</p>
+			<p class="name">
+				{{ player.user?.name }}
+			</p>
 			<p class="rating">
 				{{ rating }}
 				<span :class="ratingDiffDirection" v-if="ratingDiff">{{ ratingDiff }}</span>
@@ -50,7 +52,7 @@ const ratingDiff = computed(() => {
 </template>
 
 <style scoped>
-.player {
+.side {
 	display: flex;
 	flex-direction: column;
 }
@@ -59,6 +61,17 @@ const ratingDiff = computed(() => {
 }
 .name {
 	font-weight: 600;
+	display: flex;
+	align-items: center;
+	gap: 0.3em;
+}
+.name::before {
+	content: "";
+	border: 2px solid var(--p-neutral-800);
+	background-color: var(--side-color);
+	width: 0.8em;
+	height: 0.8em;
+	border-radius: 50%;
 }
 b {
 	font-size: 2.4rem;
@@ -82,7 +95,6 @@ b {
 	flex-direction: row-reverse;
 }
 .point {
-	content: "";
 	display: block;
 	width: 0.9rem;
 	height: 0.9rem;
@@ -99,5 +111,13 @@ b {
 }
 .accuracy .point {
 	background-color: var(--p-neutral-700);
+}
+@media (min-width: 640px) {
+	.name {
+		font-size: 1.4rem;
+	}
+	.rating {
+		font-size: 1.2rem;
+	}
 }
 </style>

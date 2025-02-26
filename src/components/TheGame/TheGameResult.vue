@@ -10,7 +10,7 @@ const termination = computed(() => {
 		resign: "Resignation",
 		outoftime: "Out of time",
 		stalemate: "Stalemate",
-		draw: "",
+		draw: "-",
 	};
 
 	return options[props.game.status as keyof typeof options] ?? props.game.status;
@@ -58,7 +58,12 @@ p {
 	background-color: var(--p-surface-800);
 	color: var(--p-surface-100);
 	font-weight: 500;
-	height: 28px;
-	line-height: 28px;
+	padding-block: 0.3em;
+}
+@media (min-width: 640px) {
+	p {
+		font-size: 1.2rem;
+		padding-block: 0.6em;
+	}
 }
 </style>
