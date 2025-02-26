@@ -2,27 +2,28 @@
 import { computed } from "vue";
 import { targetId } from "../../store";
 const props = defineProps(["game"]);
-const date = computed(() => new Intl.DateTimeFormat("en-GB").format(props.game.lastMoveAt));
-const rated = computed(() => (props.game.rated ? "Rated" : "Casual"));
 
 const termination = computed(() => {
+	// https://github.com/lichess-org/scalachess/blob/0a7d6f2c63b1ca06cd3c958ed3264e738af5c5f6/src/main/scala/Status.scala#L16-L28
 	const options = {
-		outoftime: "time",
-		mate: "mate",
-		resign: "resign",
+		mate: "Checkmate",
+		resign: "Resignation",
+		outoftime: "Out of time",
+		stalemate: "Stalemate",
+		draw: "",
 	};
 
-	return options[props.game.status as keyof typeof options];
+	return options[props.game.status as keyof typeof options] ?? props.game.status;
 });
 
 const result = computed(() => {
 	const { winner } = props.game;
 
-	if (!winner) return "Draw";
-
-	return props.game.players[winner].user?.id === targetId.value
-		? `Won (${termination.value})`
-		: `Lost (${termination.value})`;
+	return winner
+		? props.game.players[winner].user?.id === targetId.value
+			? "Victory"
+			: "Defeat"
+		: "Draw";
 });
 
 const flipped = computed(() => {
@@ -38,12 +39,13 @@ const link = computed(() => {
 </script>
 
 <template>
-	<a :href="link" target="_blank">
-		<p class="meta">{{ rated }}{{ game.clock && "" }}</p>
-		<p class="result">{{ result }}</p>
-		<html-diagram :fen="game.lastFen" :flipped :key="game.id"></html-diagram>
-		<p class="date">{{ date }}</p>
-	</a>
+	<figure>
+		<p>{{ result }}</p>
+		<a :href="link" target="_blank">
+			<html-diagram :fen="game.lastFen" :flipped :key="game.id"></html-diagram>
+		</a>
+		<p>{{ termination }}</p>
+	</figure>
 </template>
 
 <style scoped>
@@ -52,32 +54,15 @@ a {
 	display: block;
 	text-decoration: none;
 	color: inherit;
-	max-width: 220px;
 }
-a:hover .result {
-	opacity: 0;
+html-diagram {
+	border-inline: 3px solid var(--p-surface-800);
 }
 p {
 	text-align: center;
-}
-.meta,
-.date {
 	background-color: var(--p-surface-800);
 	color: var(--p-surface-100);
-	padding-block: 0.3rem;
-}
-.result {
+	padding-block: 0.4rem;
 	font-weight: 500;
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
-	background-color: #00000088;
-	padding: 0.8rem 1.2rem;
-	z-index: 1;
-	color: var(--p-surface-100);
-}
-html-diagram {
-	border-inline: 3px solid var(--p-surface-600);
 }
 </style>
