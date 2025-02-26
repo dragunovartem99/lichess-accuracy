@@ -1,12 +1,20 @@
+// Vue
 import { createApp } from "vue";
-import PrimeVue from "primevue/config";
-import Aura from "@primeuix/themes/aura";
 import "./style.css";
 import App from "./App.vue";
+
+// PrimeVue
+import PrimeVue from "primevue/config";
+import Aura from "@primeuix/themes/aura";
 import { definePreset } from "@primeuix/themes";
+
+// HTMLDiagram
 import { HTMLDiagram } from "html-diagram";
-import "vue-virtual-scroller/dist/vue-virtual-scroller.css";
+
+// Virtual Scroller
+// @ts-ignore
 import VueVirtualScroller from "vue-virtual-scroller";
+import "vue-virtual-scroller/dist/vue-virtual-scroller.css";
 
 const myPreset = definePreset(Aura, {
 	semantic: {
