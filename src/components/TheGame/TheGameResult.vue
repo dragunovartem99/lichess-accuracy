@@ -34,7 +34,7 @@ const link = computed(() => {
 </script>
 
 <template>
-	<figure>
+	<figure class="result">
 		<p>{{ termination }}</p>
 		<a :href="link" target="_blank">
 			<html-diagram :fen="game.lastFen" :flipped :key="game.id"></html-diagram>
@@ -58,7 +58,7 @@ p {
 	background-color: var(--p-surface-800);
 	color: var(--p-surface-100);
 	font-weight: 500;
-	padding-block: 0.3em;
+	padding-block: 0.4em;
 }
 @media (min-width: 640px) {
 	p {
