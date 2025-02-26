@@ -13,15 +13,18 @@ import TheSort from "./TheSort.vue";
 		<div class="games" v-if="sortedGames.length">
 			<TheGame v-for="game of sortedGames" :game :key="game.id" />
 		</div>
+		<div class="no-games" v-else>The game list is empty</div>
 	</section>
 </template>
 
 <style scoped>
+section {
+	margin-bottom: 3rem;
+}
 .games {
 	--border: 3px solid var(--p-surface-200);
 	border: var(--border);
 	border-bottom: none;
-	margin-bottom: 3rem;
 	box-shadow: 0 5px 25px #00000011;
 }
 .games > * {

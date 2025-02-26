@@ -55,7 +55,6 @@ p,
 	gap: 3rem;
 	justify-content: space-between;
 	flex-wrap: wrap;
-	text-align: center;
 }
 .title {
 	font-size: 1.4rem;
