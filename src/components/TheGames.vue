@@ -51,7 +51,7 @@ section {
 
 @media (min-width: 640px) {
 	.game {
-		padding-inline: 2rem;
+		padding-inline: 1.4rem;
 	}
 }
 </style>
