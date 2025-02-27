@@ -35,6 +35,7 @@
 	},
 	"devDependencies": {
 		"@dragunovartem99/prettier-config": "^1.2.0",
+		"@types/node": "^22.13.5",
 		"@vitejs/plugin-vue": "^5.2.1",
 		"@vue/tsconfig": "^0.7.0",
 		"typescript": "~5.7.2",
