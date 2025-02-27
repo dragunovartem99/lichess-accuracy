@@ -27,10 +27,6 @@ import TheSort from "./TheSort.vue";
 </template>
 
 <style scoped>
-section {
-	margin-bottom: 3rem;
-}
-
 .controls {
 	margin-bottom: 2rem;
 }

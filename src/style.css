@@ -1,23 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
-
-* {
-	margin: 0;
-	box-sizing: border-box;
-}
-
-@font-face {
-	font-family: "Diagram Smart";
-	src: url("/DiagramSmart.woff2");
-}
-
-@font-face {
-	font-family: "Diagram Cases";
-	src: url("/DiagramCases.woff2");
-}
+@import url("./css/fonts.css");
+@import url("./css/reset.css");
+@import url("./css/container.css");
 
 :root {
 	font-family: "Work Sans", sans-serif;
-	box-sizing: border-box;
 	--diagram-font: "Diagram Smart";
 	--diagram-color: #000;
 }
@@ -29,32 +15,8 @@
 	flex-direction: column;
 }
 
-footer {
-	margin-top: auto;
-}
-
-.container,
-.container-wide {
-	width: 100%;
-	margin-inline: auto;
-	padding-inline: 1.4rem;
-}
-
-.container {
-	max-width: 840px;
-}
-
-.container-wide {
-	max-width: 1280px;
-}
-
 h2 {
 	margin-bottom: 1rem;
-}
-
-a {
-	text-decoration: none;
-	color: inherit;
 }
 
 a:hover {
@@ -63,4 +25,8 @@ a:hover {
 
 section {
 	margin-bottom: 2rem;
+}
+
+footer {
+	margin-top: auto;
 }

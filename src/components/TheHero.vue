@@ -20,7 +20,6 @@ import TheBalls from "./TheBalls.vue";
 }
 .hero::before {
 	content: "";
-	display: block;
 	width: min(100vw, 1440px);
 	height: min(100vw, 1440px);
 	border-radius: 50%;
