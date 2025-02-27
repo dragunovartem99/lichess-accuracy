@@ -18,8 +18,8 @@ export function sortByMetric({ games, targetId, side, metric, order }: Options) 
 			colorA = a.players.white.user?.id === targetId ? "white" : "black";
 			colorB = b.players.white.user?.id === targetId ? "white" : "black";
 		} else if (side === "opponent") {
-			colorA = a.players.white.user?.id === targetId ? "black" : "white";
-			colorB = b.players.white.user?.id === targetId ? "black" : "white";
+			colorA = a.players.white.user?.id !== targetId ? "white" : "black";
+			colorB = b.players.white.user?.id !== targetId ? "white" : "black";
 		}
 
 		if (order === "ascending") {
