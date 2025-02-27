@@ -14,7 +14,8 @@ const failures: FailureKeys[] = ["blunder", "mistake", "inaccuracy"];
 			</p>
 		</template>
 		<p class="accuracy">
-			<span>acc. {{ analysis.accuracy }}%</span>
+			<span>acc</span>
+			<span>{{ analysis.accuracy }}%</span>
 			<span class="point">&bullet;</span>
 		</p>
 	</div>
@@ -45,6 +46,12 @@ const failures: FailureKeys[] = ["blunder", "mistake", "inaccuracy"];
 	justify-content: end;
 	align-items: center;
 }
+.accuracy :first-child {
+	margin-right: 0.3rem;
+}
+.accuracy :first-child::after {
+	content: ".";
+}
 @media (min-width: 640px) {
 	.analysis {
 		font-size: 1.2rem;
@@ -55,6 +62,9 @@ const failures: FailureKeys[] = ["blunder", "mistake", "inaccuracy"];
 	.point {
 		font-size: 4.5rem;
 		letter-spacing: -0.55rem;
+	}
+	.accuracy :first-child::after {
+		content: "uracy"; /* forgive me, Jesus */
 	}
 }
 </style>
