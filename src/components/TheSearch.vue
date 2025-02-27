@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 import type { Game, User } from "@/types";
 import type { AutoCompleteCompleteEvent } from "primevue/autocomplete";
 
