@@ -10,7 +10,7 @@ const rating = computed(() => props.player.rating + (props.player.provisional ? 
 const ratingDiffType = computed(() => (props.player.ratingDiff > 0 ? "positive" : "negative"));
 
 const link = computed(
-	() => props.player.user?.id && "https://lichess.org/@/" + props.player.user.id
+	() => props.player.user?.id && "https://lichess.org/@/" + props.player.user.name
 );
 </script>
 
