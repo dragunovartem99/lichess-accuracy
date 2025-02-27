@@ -1,10 +1,10 @@
 // Vue
 import { createApp } from "vue";
 import App from "./App.vue";
-import "./style.css";
+import "./css/main.css";
 
 // PrimeVue
-import { registerPrimeVue } from "./registerPrimeVue";
+import { useUI } from "./ui";
 
 // HTMLDiagram
 import { HTMLDiagram } from "html-diagram";
@@ -18,6 +18,7 @@ customElements.define("html-diagram", HTMLDiagram);
 
 const app = createApp(App);
 
-registerPrimeVue(app);
+useUI(app);
+
 app.use(VueVirtualScroller);
 app.mount("#app");

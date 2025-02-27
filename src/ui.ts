@@ -1,4 +1,5 @@
 import type { App } from "vue";
+
 import { definePreset } from "@primeuix/themes";
 import PrimeVue from "primevue/config";
 import Aura from "@primeuix/themes/aura";
@@ -39,7 +40,7 @@ const myPreset = definePreset(Aura, {
 	},
 });
 
-export function registerPrimeVue(app: App) {
+export function useUI(app: App) {
 	app.use(PrimeVue, {
 		theme: {
 			preset: myPreset,

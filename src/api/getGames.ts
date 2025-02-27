@@ -1,5 +1,5 @@
 import type { Game } from "@/types";
-import { readStream } from "./readStream";
+import { readStream } from "@/utils/readStream";
 
 type Options = {
 	username: string;
