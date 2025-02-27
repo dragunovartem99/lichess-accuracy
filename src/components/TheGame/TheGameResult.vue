@@ -31,8 +31,8 @@ const result = computed(() =>
 		: "Draw"
 );
 
-const link = computed(() =>
-	`https://lichess.org/${props.game.id}` + props.flipped ? "/black" : ""
+const link = computed(
+	() => `https://lichess.org/${props.game.id}` + (props.flipped ? "/black" : "")
 );
 </script>
 
