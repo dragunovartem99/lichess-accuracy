@@ -1,36 +1,39 @@
 <script setup lang="ts">
+import type { GameStatus } from "../../types";
+
 import { computed } from "vue";
 import { targetId } from "../../store";
+
 const props = defineProps(["game", "flipped"]);
 
 const termination = computed(() => {
-	// https://github.com/lichess-org/scalachess/blob/0a7d6f2c63b1ca06cd3c958ed3264e738af5c5f6/src/main/scala/Status.scala#L16-L28
-	const options = {
+	const status: GameStatus = props.game.status;
+
+	const options: Partial<Record<GameStatus, string>> = {
 		mate: "Checkmate",
 		resign: "Resignation",
-		outoftime: "Out of time",
 		stalemate: "Stalemate",
+		timeout: "Left the game",
 		draw: "-",
+		outoftime: "Out of time",
+		cheat: "Anti-cheat",
+		variantEnd: "Variant end",
 	};
 
-	return options[props.game.status as keyof typeof options] ?? props.game.status;
+	return options[status] ?? status;
 });
 
-const result = computed(() => {
-	const { winner } = props.game;
-
-	return winner
-		? props.game.players[winner].user?.id === targetId.value
+const result = computed(() =>
+	props.game.winner
+		? props.game.players[props.game.winner].user?.id === targetId.value
 			? "Victory"
 			: "Defeat"
-		: "Draw";
-});
+		: "Draw"
+);
 
-const link = computed(() => {
-	const gameLink = `https://lichess.org/${props.game.id}`;
-	const suffix = props.flipped ? "/black" : "";
-	return gameLink + suffix;
-});
+const link = computed(() =>
+	`https://lichess.org/${props.game.id}` + props.flipped ? "/black" : ""
+);
 </script>
 
 <template>
@@ -48,17 +51,20 @@ figure {
 	display: flex;
 	flex-direction: column;
 }
-html-diagram {
-	border-inline: 3px solid var(--p-surface-800);
-}
 p {
-	background-color: var(--p-surface-800);
-	color: var(--p-surface-100);
-	font-weight: 500;
 	flex: 1;
-	padding-block: 0.5em;
 	display: grid;
 	place-items: center;
+	background-color: var(--p-surface-800);
+	color: var(--p-surface-0);
+	font-weight: 500;
+	padding-block: 0.5em;
+}
+a:hover {
+	background-color: var(--p-cyan-100);
+}
+html-diagram {
+	border-inline: 3px solid var(--p-surface-800);
 }
 @media (min-width: 640px) {
 	p {

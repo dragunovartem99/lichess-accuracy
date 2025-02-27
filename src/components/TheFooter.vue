@@ -19,7 +19,7 @@
 			<div>
 				<p>What is...</p>
 				<a href="https://lichess.org/page/accuracy" target="_blank">Accuracy</a>
-				<a href="">ACPL</a>
+				<a href="#">ACPL</a>
 			</div>
 			<div>
 				<p>Contact author</p>

@@ -1,20 +1,14 @@
 <script setup lang="ts">
+import type { Game } from "../../types";
 import { computed } from "vue";
 
-const props = defineProps(["game"]);
+const props = defineProps<{ game: Game }>();
 
 const date = computed(() => new Intl.DateTimeFormat("en-GB").format(props.game.lastMoveAt));
 const datetime = computed(() => new Date(props.game.lastMoveAt).toISOString());
+
 const seriousness = computed(() => (props.game.rated ? "Rated" : "Casual"));
-const speed = computed(() => props.game.speed);
-
-const variant = computed(() => {
-	const standard = ["bullet", "blitz", "rapid", "classical"];
-
-	if (!standard.includes(props.game.perf)) {
-		return props.game.perf;
-	}
-});
+const variant = computed(() => props.game.variant !== "standard" && props.game.perf);
 </script>
 
 <template>
@@ -22,7 +16,7 @@ const variant = computed(() => {
 		<time :datetime>{{ date }}</time>
 		<p>
 			<span>{{ seriousness }}</span>
-			<span>{{ speed }}</span>
+			<span>{{ game.speed }}</span>
 			<span v-if="variant">{{ variant }}</span>
 		</p>
 	</div>

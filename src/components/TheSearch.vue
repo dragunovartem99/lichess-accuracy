@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import AutoComplete, { type AutoCompleteCompleteEvent } from "primevue/autocomplete";
-import type { UserSuggestion } from "../types";
+import type { User } from "../types";
 import Button from "primevue/button";
 import InputGroup from "primevue/inputgroup";
 import { getSuggestions } from "../api/suggestions";
@@ -16,7 +16,7 @@ const loading = ref(false);
 async function fetchUsers(event: AutoCompleteCompleteEvent) {
 	if (event.query.length < 3) return;
 	const data = await getSuggestions(event.query);
-	items.value = data.result.map((obj: UserSuggestion) => obj.name);
+	items.value = data.result.map((obj: User) => obj.name);
 }
 
 function search() {
