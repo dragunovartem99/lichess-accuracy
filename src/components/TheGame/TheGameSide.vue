@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Player } from "../../types";
+import type { Player } from "@/types";
 
 import { computed } from "vue";
 import TheGameAnalysis from "./TheGameAnalysis.vue";

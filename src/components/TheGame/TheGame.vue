@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { Game } from "../../types";
+import type { Game } from "@/types";
 
 import { computed } from "vue";
-import { targetId } from "../../store";
+import { targetId } from "@/state/data";
 
 import TheGameMeta from "./TheGameMeta.vue";
 import TheGameResult from "./TheGameResult.vue";

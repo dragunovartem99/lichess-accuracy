@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import TreeSelect from "primevue/treeselect";
 import IftaLabel from "primevue/iftalabel";
-import { options, userChoice } from "../modules/sort";
+import { options, userChoice } from "@/modules/sort";
 </script>
 
 <template>

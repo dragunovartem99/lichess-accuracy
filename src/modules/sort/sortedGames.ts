@@ -1,8 +1,8 @@
-import type { Analysis } from "../../types";
+import type { Analysis } from "@/types";
 import type { SortOrder, SortSide } from "./types";
 
 import { computed } from "vue";
-import { games, targetId } from "../../store";
+import { games, targetId } from "@/state/data";
 import { userChoice } from "./userChoice";
 import { sortByMetric } from "./sortByMetric";
 

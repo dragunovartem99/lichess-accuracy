@@ -1,33 +1,45 @@
 <script lang="ts" setup>
-import { ref } from "vue";
-import AutoComplete, { type AutoCompleteCompleteEvent } from "primevue/autocomplete";
-import type { User } from "../types";
+import type { Game, User } from "@/types";
+import type { AutoCompleteCompleteEvent } from "primevue/autocomplete";
+
+import AutoComplete from "primevue/autocomplete";
 import Button from "primevue/button";
 import InputGroup from "primevue/inputgroup";
-import { getSuggestions } from "../api/suggestions";
-import { getGames } from "../api/getGames";
 
-import { setTarget, addGame, targetId, clearGames } from "../store";
+import { ref, watch } from "vue";
+import { setTarget, addGame, clearGames } from "@/state/data";
+import { getSuggestions } from "@/api/getSuggestions";
+import { getGames } from "@/api/getGames";
 
-const value = ref("");
-const items = ref([]);
-const loading = ref(false);
+const username = ref("");
+const suggestions = ref([]);
+const isFetching = ref(false);
 
-async function fetchUsers(event: AutoCompleteCompleteEvent) {
-	if (event.query.length < 3) return;
-	const data = await getSuggestions(event.query);
-	items.value = data.result.map((obj: User) => obj.name);
-}
+watch(isFetching, (newValue) => {
+	if (newValue) {
+		clearGames();
+		fetchGames();
+	}
+});
 
 function search() {
-	setTarget(value.value);
-	clearGames();
+	setTarget(username.value);
+	isFetching.value = true;
+}
 
-	loading.value = true;
-	const onGame = (game: any) => addGame(game);
-	const onEnd = () => (loading.value = false);
+async function fetchSuggestions(event: AutoCompleteCompleteEvent) {
+	if (event.query.length < 3) {
+		return; // API limit
+	}
 
-	getGames({ targetId: targetId.value, onGame, onEnd });
+	const data = await getSuggestions(event.query);
+	suggestions.value = data.result.map((obj: User) => obj.name);
+}
+
+function fetchGames() {
+	const onGame = (game: Game) => addGame(game);
+	const onEnd = () => (isFetching.value = false);
+	getGames({ username: username.value, onGame, onEnd });
 }
 </script>
 
@@ -40,12 +52,12 @@ function search() {
 		<InputGroup>
 			<AutoComplete
 				placeholder="target"
-				v-model="value"
-				:suggestions="items"
-				@complete="fetchUsers"
+				v-model="username"
+				@complete="fetchSuggestions"
+				:suggestions
 				force-selection
 			/>
-			<Button label="Analysis" @click="search" :loading />
+			<Button label="Analysis" @click="search" :loading="isFetching" />
 		</InputGroup>
 	</div>
 </template>

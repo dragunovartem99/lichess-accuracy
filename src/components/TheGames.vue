@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { sortedGames } from "../modules/sort";
+import { sortedGames } from "@/modules/sort";
 import TheGame from "./TheGame/TheGame.vue";
 import TheSort from "./TheSort.vue";
 </script>

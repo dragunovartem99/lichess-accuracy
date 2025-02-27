@@ -1,5 +1,5 @@
 import { computed } from "vue";
-import { targetId, games } from "../../store";
+import { targetId, games } from "@/state/data";
 import { calcAverage } from "./calcAverage";
 
 export const statistics = computed(() => {

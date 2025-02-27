@@ -1,4 +1,4 @@
-import type { Color, Game, Analysis } from "../../types";
+import type { Color, Game, Analysis } from "@/types";
 import type { SortSide, SortOrder } from "./types";
 
 type Options = {

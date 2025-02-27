@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Analysis } from "../../types";
+import type { Analysis } from "@/types";
 defineProps<{ analysis: Analysis }>();
 
 type FailureKeys = keyof Pick<Analysis, "blunder" | "mistake" | "inaccuracy">;

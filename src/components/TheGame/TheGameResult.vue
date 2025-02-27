@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { GameStatus } from "../../types";
+import type { GameStatus } from "@/types";
 
 import { computed } from "vue";
-import { targetId } from "../../store";
+import { targetId } from "@/state/data";
 
 const props = defineProps(["game", "flipped"]);
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Game } from "../../types";
+import type { Game } from "@/types";
 import { computed } from "vue";
 
 const props = defineProps<{ game: Game }>();

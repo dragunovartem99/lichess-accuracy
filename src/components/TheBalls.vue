@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { statistics } from "../modules/statistics";
+import { statistics } from "@/modules/statistics";
 import TheBall from "./TheBall.vue";
 
 const balls = computed(() => [
