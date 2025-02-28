@@ -23,7 +23,7 @@ export const sortedGames = computed(() => {
 		case "newest":
 			return games.value;
 		case "oldest":
-			return games.value.toReversed();
+			return [...games.value].reverse();
 		default:
 			return sortByMetric({
 				...extractOptions(choice),
