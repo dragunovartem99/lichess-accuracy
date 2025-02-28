@@ -10,7 +10,7 @@ type Options = {
 };
 
 export function sortByMetric({ games, targetId, side, metric, order }: Options) {
-	return [...games].sort((a: Game, b: Game) => {
+	return games.toSorted((a: Game, b: Game) => {
 		let colorA: Color;
 		let colorB: Color;
 
