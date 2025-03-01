@@ -62,6 +62,11 @@ p {
 	padding-block: 0.5em;
 }
 
+a:hover html-diagram {
+	--diagram-light: var(--p-sky-100);
+	--diagram-dark: var(--p-sky-300);
+}
+
 html-diagram {
 	border-inline: 3px solid var(--p-surface-800);
 	--diagram-light: var(--p-surface-200);
