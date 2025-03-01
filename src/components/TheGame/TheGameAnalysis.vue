@@ -39,7 +39,7 @@ const failures: FailureKeys[] = ["blunder", "mistake", "inaccuracy"];
 	color: var(--p-yellow-500);
 }
 .inaccuracy {
-	color: var(--p-cyan-500);
+	color: var(--p-sky-500);
 }
 .accuracy {
 	display: flex;

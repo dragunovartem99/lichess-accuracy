@@ -4,7 +4,7 @@
 
 :root {
 	font-family: "Work Sans", sans-serif;
-	--diagram-font: "Diagram Smart";
+	--diagram-font: "Diagram Cases";
 	--diagram-color: #000;
 }
 
@@ -20,7 +20,7 @@ h2 {
 }
 
 a:hover {
-	color: var(--p-cyan-500);
+	color: var(--p-sky-500);
 }
 
 section {

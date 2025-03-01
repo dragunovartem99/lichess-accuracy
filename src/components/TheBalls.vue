@@ -45,7 +45,7 @@ const balls = computed(() => [
 .ball:nth-of-type(4) {
 	bottom: 1%;
 	left: 0;
-	--ball-bg: var(--p-cyan-500);
+	--ball-bg: var(--p-sky-500);
 	--ball-animation: float-2 8s linear infinite;
 }
 .ball:nth-of-type(5) {
