@@ -28,7 +28,7 @@
 	"prettier": "@dragunovartem99/prettier-config",
 	"dependencies": {
 		"@primeuix/themes": "^1.0.0-rc.1",
-		"html-diagram": "^0.4.1",
+		"html-diagram": "^0.5.0",
 		"prettier": "^3.5.2",
 		"primevue": "^4.2.5",
 		"vue": "^3.5.13",
