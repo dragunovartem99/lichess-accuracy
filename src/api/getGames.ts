@@ -1,6 +1,6 @@
 import type { Game } from "@/types";
 import { readStream } from "@/utils/readStream";
-import { request } from "@/modules/request";
+import { options as request } from "@/modules/request";
 
 type Options = {
 	username: string;

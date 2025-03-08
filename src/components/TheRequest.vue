@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { request, requestSummary } from "@/modules/request";
 import { ref } from "vue";
+import { options, summary } from "@/modules/request";
 import TheRequestControl from "./TheRequestControl.vue";
 import InputText from "primevue/inputtext";
 import Select from "primevue/select";
@@ -37,14 +37,14 @@ const color = ref([
 <template>
 	<section>
 		<h2>Request</h2>
-		<p style="margin-bottom: 1rem">{{ requestSummary }}</p>
+		<p style="margin-bottom: 1rem">{{ summary }}</p>
 		<div class="controls">
 			<div>
 				<TheRequestControl label="Variant">
 					<MultiSelect
 						placeholder="All variants"
 						:options="variants"
-						v-model="request.perfType"
+						v-model="options.perfType"
 						option-label="label"
 						option-value="value"
 						:max-selected-labels="3"
@@ -54,7 +54,7 @@ const color = ref([
 					<Select
 						placeholder="Rated and Casual"
 						:options="rated"
-						v-model="request.rated"
+						v-model="options.rated"
 						option-label="label"
 						option-value="value"
 						:show-clear="true"
@@ -64,7 +64,7 @@ const color = ref([
 					<Select
 						placeholder="White and Black"
 						:options="color"
-						v-model="request.color"
+						v-model="options.color"
 						option-label="label"
 						option-value="value"
 						:show-clear="true"
@@ -73,16 +73,16 @@ const color = ref([
 			</div>
 			<div>
 				<TheRequestControl label="From">
-					<DatePicker v-model="request.since" dateFormat="dd/mm/yy" />
+					<DatePicker v-model="options.since" dateFormat="dd/mm/yy" />
 				</TheRequestControl>
 				<TheRequestControl label="To">
-					<DatePicker v-model="request.until" dateFormat="dd/mm/yy" />
+					<DatePicker v-model="options.until" dateFormat="dd/mm/yy" />
 				</TheRequestControl>
 				<TheRequestControl label="Game limit">
-					<InputText step="25" type="number" v-model="request.max" />
+					<InputText step="25" type="number" v-model="options.max" />
 				</TheRequestControl>
 				<TheRequestControl label="Opponent">
-					<InputText v-model="request.vs" />
+					<InputText v-model="options.vs" />
 				</TheRequestControl>
 			</div>
 		</div>

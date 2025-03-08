@@ -1,21 +1,4 @@
-import { ref, computed } from "vue";
+import { options } from "./options";
+import { summary } from "./summary";
 
-export const request = ref({
-	perfType: ["blitz", "rapid", "classical"],
-	max: "",
-	vs: "",
-	rated: "",
-	color: "",
-	since: null,
-	until: null
-});
-
-export const requestSummary = computed(() => {
-	let summary = "";
-
-	if (request.value.max) {
-		summary += `Max: ${request.value.max} games`;
-	}
-
-	return summary;
-});
+export { options, summary };
