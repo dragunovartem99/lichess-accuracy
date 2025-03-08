@@ -20,8 +20,14 @@ const color = ref([
 		<p style="margin-bottom: 1rem">{{ requestSummary }}</p>
 		<p>
 			<label>
-				Limit:
-				<InputText step="25" input-id="max" type="number" v-model="request.max" />
+				Game limit:
+				<InputText step="25" type="number" v-model="request.max" />
+			</label>
+		</p>
+		<p>
+			<label>
+				Opponent:
+				<InputText v-model="request.vs" />
 			</label>
 		</p>
 		<p>
