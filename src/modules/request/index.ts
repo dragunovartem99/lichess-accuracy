@@ -6,6 +6,8 @@ export const request = ref({
 	vs: "",
 	rated: "",
 	color: "",
+	since: null,
+	until: null
 });
 
 export const requestSummary = computed(() => {

@@ -15,6 +15,8 @@ export async function getGames({ username, onGame, onEnd }: Options) {
 		lastFen: "true",
 		moves: "false",
 		...request.value,
+		since: request.value.since?.getTime(),
+		until: request.value.until?.getTime()
 	});
 
 	const stream = fetch(`https://lichess.org/api/games/user/${username}?${params.toString()}`, {

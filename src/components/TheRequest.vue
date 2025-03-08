@@ -3,7 +3,8 @@ import { request, requestSummary } from "@/modules/request";
 import { ref } from "vue";
 import InputText from "primevue/inputtext";
 import Select from "primevue/select";
-import MultiSelect from 'primevue/multiselect';
+import MultiSelect from "primevue/multiselect";
+import DatePicker from "primevue/datepicker";
 
 const variants = ref([
 	{ label: "Ultrabullet", value: "ultraBullet" },
@@ -50,18 +51,6 @@ const color = ref([
 		</p>
 		<p>
 			<label>
-				Game limit:
-				<InputText step="25" type="number" v-model="request.max" />
-			</label>
-		</p>
-		<p>
-			<label>
-				Opponent:
-				<InputText v-model="request.vs" />
-			</label>
-		</p>
-		<p>
-			<label>
 				Rated:
 				<Select
 					placeholder="Rated and Casual"
@@ -84,6 +73,30 @@ const color = ref([
 					option-value="value"
 					:show-clear="true"
 				/>
+			</label>
+		</p>
+		<p>
+			<label>
+				From:
+				<DatePicker v-model="request.since" dateFormat="dd/mm/yy" />
+			</label>
+		</p>
+		<p>
+			<label>
+				To:
+				<DatePicker v-model="request.until" dateFormat="dd/mm/yy" />
+			</label>
+		</p>
+		<p>
+			<label>
+				Game limit:
+				<InputText step="25" type="number" v-model="request.max" />
+			</label>
+		</p>
+		<p>
+			<label>
+				Opponent:
+				<InputText v-model="request.vs" />
 			</label>
 		</p>
 	</section>
