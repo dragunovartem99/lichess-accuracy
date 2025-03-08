@@ -2,6 +2,8 @@ import { ref, computed } from "vue";
 
 export const request = ref({
 	max: "",
+	rated: null,
+	color: null,
 });
 
 export const requestSummary = computed(() => {
