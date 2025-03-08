@@ -3,6 +3,24 @@ import { request, requestSummary } from "@/modules/request";
 import { ref } from "vue";
 import InputText from "primevue/inputtext";
 import Select from "primevue/select";
+import MultiSelect from 'primevue/multiselect';
+
+const variants = ref([
+	{ label: "Ultrabullet", value: "ultraBullet" },
+	{ label: "Bullet", value: "bullet" },
+	{ label: "Blitz", value: "blitz" },
+	{ label: "Rapid", value: "rapid" },
+	{ label: "Classical", value: "classical" },
+	{ label: "Correspondence", value: "correspondence" },
+	{ label: "Chess960", value: "chess960" },
+	{ label: "Crazyhouse", value: "crazyhouse" },
+	{ label: "Antichess", value: "antichess" },
+	{ label: "Atomic", value: "atomic" },
+	{ label: "Horde", value: "horde" },
+	{ label: "King Of The Hill", value: "kingOfTheHill" },
+	{ label: "Racing Kings", value: "racingKings" },
+	{ label: "Three Check", value: "threeCheck" },
+]);
 
 const rated = ref([
 	{ label: "Rated", value: true },
@@ -18,6 +36,18 @@ const color = ref([
 	<section>
 		<h2>Request</h2>
 		<p style="margin-bottom: 1rem">{{ requestSummary }}</p>
+		<p>
+			<label>
+				Variant:
+				<MultiSelect
+					placeholder="All variants"
+					:options="variants"
+					v-model="request.perfType"
+					option-label="label"
+					option-value="value"
+				/>
+			</label>
+		</p>
 		<p>
 			<label>
 				Game limit:

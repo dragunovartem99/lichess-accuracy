@@ -1,10 +1,11 @@
 import { ref, computed } from "vue";
 
 export const request = ref({
+	perfType: ["blitz", "rapid", "classical"],
 	max: "",
 	vs: "",
-	rated: null,
-	color: null,
+	rated: "",
+	color: "",
 });
 
 export const requestSummary = computed(() => {
