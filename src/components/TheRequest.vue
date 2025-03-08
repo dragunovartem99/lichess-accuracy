@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { request, requestSummary } from "@/modules/request";
 import { ref } from "vue";
+import TheRequestControl from "./TheRequestControl.vue";
 import InputText from "primevue/inputtext";
 import Select from "primevue/select";
 import MultiSelect from "primevue/multiselect";
@@ -37,67 +38,60 @@ const color = ref([
 	<section>
 		<h2>Request</h2>
 		<p style="margin-bottom: 1rem">{{ requestSummary }}</p>
-		<p>
-			<label>
-				Variant:
-				<MultiSelect
-					placeholder="All variants"
-					:options="variants"
-					v-model="request.perfType"
-					option-label="label"
-					option-value="value"
-				/>
-			</label>
-		</p>
-		<p>
-			<label>
-				Rated:
-				<Select
-					placeholder="Rated and Casual"
-					:options="rated"
-					v-model="request.rated"
-					option-label="label"
-					option-value="value"
-					:show-clear="true"
-				/>
-			</label>
-		</p>
-		<p>
-			<label>
-				Color:
-				<Select
-					placeholder="White and Black"
-					:options="color"
-					v-model="request.color"
-					option-label="label"
-					option-value="value"
-					:show-clear="true"
-				/>
-			</label>
-		</p>
-		<p>
-			<label>
-				From:
-				<DatePicker v-model="request.since" dateFormat="dd/mm/yy" />
-			</label>
-		</p>
-		<p>
-			<label>
-				To:
-				<DatePicker v-model="request.until" dateFormat="dd/mm/yy" />
-			</label>
-		</p>
-		<p>
-			<label>
-				Game limit:
-				<InputText step="25" type="number" v-model="request.max" />
-			</label>
-		</p>
-		<p>
-			<label>
-				Opponent:
-				<InputText v-model="request.vs" />
-			</label>
-		</p>
+		<div class="controls">
+			<div>
+				<TheRequestControl label="Variant">
+					<MultiSelect
+						placeholder="All variants"
+						:options="variants"
+						v-model="request.perfType"
+						option-label="label"
+						option-value="value"
+						:max-selected-labels="3"
+					/>
+				</TheRequestControl>
+				<TheRequestControl label="Rated">
+					<Select
+						placeholder="Rated and Casual"
+						:options="rated"
+						v-model="request.rated"
+						option-label="label"
+						option-value="value"
+						:show-clear="true"
+					/>
+				</TheRequestControl>
+				<TheRequestControl label="Color">
+					<Select
+						placeholder="White and Black"
+						:options="color"
+						v-model="request.color"
+						option-label="label"
+						option-value="value"
+						:show-clear="true"
+					/>
+				</TheRequestControl>
+			</div>
+			<div>
+				<TheRequestControl label="From">
+					<DatePicker v-model="request.since" dateFormat="dd/mm/yy" />
+				</TheRequestControl>
+				<TheRequestControl label="To">
+					<DatePicker v-model="request.until" dateFormat="dd/mm/yy" />
+				</TheRequestControl>
+				<TheRequestControl label="Game limit">
+					<InputText step="25" type="number" v-model="request.max" />
+				</TheRequestControl>
+				<TheRequestControl label="Opponent">
+					<InputText v-model="request.vs" />
+				</TheRequestControl>
+			</div>
+		</div>
 	</section>
 </template>
+
+<style scoped>
+.controls {
+	display: flex;
+	gap: 2rem;
+}
+</style>
