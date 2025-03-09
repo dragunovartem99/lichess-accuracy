@@ -14,7 +14,5 @@ export function normalizeRequestOptions(rawOptions: any) {
 		options[key] = value;
 	}
 
-	return {
-		...options,
-	};
+	return options;
 }
