@@ -1,15 +1,20 @@
 export function normalizeRequestOptions(rawOptions: any) {
 	const options: any = {};
 
-	for (const key in rawOptions) {
-		if (rawOptions[key] !== null && rawOptions[key] !== "") {
-			options[key] = rawOptions[key];
+	for (const [key, value] of Object.entries(rawOptions)) {
+		if ([null, ""].includes(value)) {
+			continue;
 		}
+
+		if (value instanceof Date) {
+			options[key] = value.getTime();
+			continue;
+		}
+
+		options[key] = value;
 	}
 
 	return {
 		...options,
-		since: options.since?.getTime(),
-		until: options.until?.getTime(),
 	};
 }
