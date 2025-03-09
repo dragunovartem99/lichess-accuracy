@@ -1,5 +1,6 @@
 import { computed } from "vue";
 import { options } from "./options";
+import { gameVariants } from "@/static/gameVariants";
 
 export const summary = computed(() => {
 	const rated = new Map([
@@ -7,9 +8,10 @@ export const summary = computed(() => {
 		[false, "casual"],
 	]).get(options.value.rated);
 
-	const variants = options.value.perfType.length
-		? "Variants: " + options.value.perfType.join(", ")
-		: "All variants";
+	const variants =
+		!options.value.perfType.length || options.value.perfType.length === gameVariants.length
+			? "All variants"
+			: "Variants: " + options.value.perfType.join(", ");
 
 	const chunks = [
 		options.value.max || "All",

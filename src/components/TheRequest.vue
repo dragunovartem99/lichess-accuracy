@@ -1,28 +1,14 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { options, summary } from "@/modules/request";
+import { gameVariants } from "@/static/gameVariants";
 import TheRequestControl from "./TheRequestControl.vue";
 import InputText from "primevue/inputtext";
 import Select from "primevue/select";
 import MultiSelect from "primevue/multiselect";
 import DatePicker from "primevue/datepicker";
 
-const variants = ref([
-	{ label: "Ultrabullet", value: "ultraBullet" },
-	{ label: "Bullet", value: "bullet" },
-	{ label: "Blitz", value: "blitz" },
-	{ label: "Rapid", value: "rapid" },
-	{ label: "Classical", value: "classical" },
-	{ label: "Correspondence", value: "correspondence" },
-	{ label: "Chess960", value: "chess960" },
-	{ label: "Crazyhouse", value: "crazyhouse" },
-	{ label: "Antichess", value: "antichess" },
-	{ label: "Atomic", value: "atomic" },
-	{ label: "Horde", value: "horde" },
-	{ label: "King Of The Hill", value: "kingOfTheHill" },
-	{ label: "Racing Kings", value: "racingKings" },
-	{ label: "Three Check", value: "threeCheck" },
-]);
+const variants = ref(gameVariants);
 
 const rated = ref([
 	{ label: "Rated", value: true },
