@@ -4,8 +4,8 @@ export const options = ref({
 	max: "",
 	perfType: ["blitz", "rapid", "classical"],
 	vs: "",
-	rated: null,
-	color: null,
+	rated: "",
+	color: "",
 	since: null,
 	until: null,
 });
