@@ -18,7 +18,7 @@ export const summary = computed(() => {
 		rated,
 		"games",
 		options.value.color && `as ${options.value.color}`,
-	].filter((chunk) => !!chunk);
+	];
 
-	return chunks.join(" ") + ". " + variants + ".";
+	return chunks.filter((chunk) => chunk !== "").join(" ") + ". " + variants + ".";
 });

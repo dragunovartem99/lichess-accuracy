@@ -7,6 +7,7 @@ import InputText from "primevue/inputtext";
 import Select from "primevue/select";
 import MultiSelect from "primevue/multiselect";
 import DatePicker from "primevue/datepicker";
+import Fluid from "primevue/fluid";
 
 const variants = ref(gameVariants);
 
@@ -57,20 +58,22 @@ const color = ref([
 					/>
 				</TheRequestControl>
 			</div>
-			<div>
-				<TheRequestControl label="From">
-					<DatePicker v-model="options.since" dateFormat="dd/mm/yy" />
-				</TheRequestControl>
-				<TheRequestControl label="To">
-					<DatePicker v-model="options.until" dateFormat="dd/mm/yy" />
-				</TheRequestControl>
+			<Fluid>
+				<div class="dates">
+					<TheRequestControl label="From">
+						<DatePicker v-model="options.since" dateFormat="dd/mm/yy" />
+					</TheRequestControl>
+					<TheRequestControl label="To">
+						<DatePicker v-model="options.until" dateFormat="dd/mm/yy" />
+					</TheRequestControl>
+				</div>
 				<TheRequestControl label="Game limit">
 					<InputText step="25" type="number" v-model="options.max" />
 				</TheRequestControl>
 				<TheRequestControl label="Opponent">
 					<InputText v-model="options.vs" />
 				</TheRequestControl>
-			</div>
+			</Fluid>
 		</div>
 	</section>
 </template>
@@ -78,6 +81,16 @@ const color = ref([
 <style scoped>
 .controls {
 	display: flex;
-	gap: 2rem;
+	column-gap: 1.6rem;
+}
+.controls > * {
+	flex: 1;
+	display: inherit;
+	flex-direction: column;
+	gap: 0.8rem;
+}
+.dates {
+	display: inherit;
+	gap: inherit;
 }
 </style>
