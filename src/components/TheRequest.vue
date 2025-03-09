@@ -2,7 +2,7 @@
 import { ref } from "vue";
 import { options, summary } from "@/modules/request";
 import { gameVariants } from "@/static/gameVariants";
-import TheRequestControl from "./TheRequestControl.vue";
+import FormControl from "./FormControl.vue";
 import InputText from "primevue/inputtext";
 import Select from "primevue/select";
 import MultiSelect from "primevue/multiselect";
@@ -26,15 +26,15 @@ const color = ref([
 		<p style="margin-bottom: 1rem">{{ summary }}</p>
 		<div class="controls">
 			<div>
-				<TheRequestControl label="Game limit">
+				<FormControl label="Game limit">
 					<InputText
 						placeholder="All games"
 						step="25"
 						type="number"
 						v-model="options.max"
 					/>
-				</TheRequestControl>
-				<TheRequestControl label="Rated">
+				</FormControl>
+				<FormControl label="Rated">
 					<Select
 						placeholder="Rated and Casual"
 						:options="rated"
@@ -43,8 +43,8 @@ const color = ref([
 						option-value="value"
 						:show-clear="true"
 					/>
-				</TheRequestControl>
-				<TheRequestControl label="Color">
+				</FormControl>
+				<FormControl label="Color">
 					<Select
 						placeholder="White and Black"
 						:options="color"
@@ -53,29 +53,29 @@ const color = ref([
 						option-value="value"
 						:show-clear="true"
 					/>
-				</TheRequestControl>
+				</FormControl>
 			</div>
 			<div>
-				<TheRequestControl label="Opponent">
+				<FormControl label="Opponent">
 					<InputText v-model="options.vs" />
-				</TheRequestControl>
+				</FormControl>
 				<div class="dates">
-					<TheRequestControl label="From">
+					<FormControl label="From">
 						<DatePicker
 							placeholder="Account creation"
 							v-model="options.since"
 							dateFormat="dd/mm/yy"
 						/>
-					</TheRequestControl>
-					<TheRequestControl label="To">
+					</FormControl>
+					<FormControl label="To">
 						<DatePicker
 							placeholder="Now"
 							v-model="options.until"
 							dateFormat="dd/mm/yy"
 						/>
-					</TheRequestControl>
+					</FormControl>
 				</div>
-				<TheRequestControl label="Variant">
+				<FormControl label="Variant">
 					<MultiSelect
 						placeholder="All variants"
 						:options="variants"
@@ -84,7 +84,7 @@ const color = ref([
 						option-value="value"
 						:max-selected-labels="3"
 					/>
-				</TheRequestControl>
+				</FormControl>
 			</div>
 		</div>
 	</section>
