@@ -5,7 +5,7 @@ defineProps<{ label: string }>();
 <template>
 	<p>
 		<label>
-			{{ label }}:
+			{{ label }}
 			<slot />
 		</label>
 	</p>

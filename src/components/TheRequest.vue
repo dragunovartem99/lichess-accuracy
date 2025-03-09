@@ -7,7 +7,6 @@ import InputText from "primevue/inputtext";
 import Select from "primevue/select";
 import MultiSelect from "primevue/multiselect";
 import DatePicker from "primevue/datepicker";
-import Fluid from "primevue/fluid";
 
 const variants = ref(gameVariants);
 
@@ -27,14 +26,12 @@ const color = ref([
 		<p style="margin-bottom: 1rem">{{ summary }}</p>
 		<div class="controls">
 			<div>
-				<TheRequestControl label="Variant">
-					<MultiSelect
-						placeholder="All variants"
-						:options="variants"
-						v-model="options.perfType"
-						option-label="label"
-						option-value="value"
-						:max-selected-labels="3"
+				<TheRequestControl label="Game limit">
+					<InputText
+						placeholder="All games"
+						step="25"
+						type="number"
+						v-model="options.max"
 					/>
 				</TheRequestControl>
 				<TheRequestControl label="Rated">
@@ -58,22 +55,37 @@ const color = ref([
 					/>
 				</TheRequestControl>
 			</div>
-			<Fluid>
-				<div class="dates">
-					<TheRequestControl label="From">
-						<DatePicker v-model="options.since" dateFormat="dd/mm/yy" />
-					</TheRequestControl>
-					<TheRequestControl label="To">
-						<DatePicker v-model="options.until" dateFormat="dd/mm/yy" />
-					</TheRequestControl>
-				</div>
-				<TheRequestControl label="Game limit">
-					<InputText step="25" type="number" v-model="options.max" />
-				</TheRequestControl>
+			<div>
 				<TheRequestControl label="Opponent">
 					<InputText v-model="options.vs" />
 				</TheRequestControl>
-			</Fluid>
+				<div class="dates">
+					<TheRequestControl label="From">
+						<DatePicker
+							placeholder="Account creation"
+							v-model="options.since"
+							dateFormat="dd/mm/yy"
+						/>
+					</TheRequestControl>
+					<TheRequestControl label="To">
+						<DatePicker
+							placeholder="Now"
+							v-model="options.until"
+							dateFormat="dd/mm/yy"
+						/>
+					</TheRequestControl>
+				</div>
+				<TheRequestControl label="Variant">
+					<MultiSelect
+						placeholder="All variants"
+						:options="variants"
+						v-model="options.perfType"
+						option-label="label"
+						option-value="value"
+						:max-selected-labels="3"
+					/>
+				</TheRequestControl>
+			</div>
 		</div>
 	</section>
 </template>
