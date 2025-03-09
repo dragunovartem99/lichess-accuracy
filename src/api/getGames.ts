@@ -1,6 +1,8 @@
 import type { Game } from "@/types";
 import { readStream } from "@/utils/readStream";
 import { options as request } from "@/modules/request";
+import { normalizeRequestOptions } from "@/utils/normalizeRequestOptions";
+import { apiUrl } from "@/static/apiUrl";
 
 type Options = {
 	username: string;
@@ -10,16 +12,14 @@ type Options = {
 
 export async function getGames({ username, onGame, onEnd }: Options) {
 	const params = new URLSearchParams({
-		analysed: "true",
-		accuracy: "true",
-		lastFen: "true",
-		moves: "false",
-		...request.value,
-		since: request.value.since?.getTime(),
-		until: request.value.until?.getTime()
+		analysed: true,
+		accuracy: true,
+		lastFen: true,
+		moves: false,
+		...normalizeRequestOptions(request.value)
 	});
 
-	const stream = fetch(`https://lichess.org/api/games/user/${username}?${params.toString()}`, {
+	const stream = fetch(`${apiUrl}/games/user/${username}?${params.toString()}`, {
 		headers: { Accept: "application/x-ndjson" },
 	});
 

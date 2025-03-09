@@ -23,7 +23,7 @@ const color = ref([
 <template>
 	<section>
 		<h2>Request</h2>
-		<p style="margin-bottom: 1rem">{{ summary }}</p>
+		<p class="summary">{{ summary }}</p>
 		<div class="controls">
 			<div>
 				<FormControl label="Game limit">
@@ -91,6 +91,9 @@ const color = ref([
 </template>
 
 <style scoped>
+.summary {
+	margin-bottom: 1.6rem;
+}
 .controls {
 	display: flex;
 	column-gap: 1.6rem;
