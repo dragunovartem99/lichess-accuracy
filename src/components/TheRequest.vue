@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import { options, summary } from "@/modules/request";
 import { gameVariants } from "@/static/gameVariants";
+
 import FormControl from "./FormControl.vue";
 import InputText from "primevue/inputtext";
 import Select from "primevue/select";
@@ -20,6 +21,7 @@ const color = ref([
 	{ label: "Black", value: "black" },
 ]);
 </script>
+
 <template>
 	<section>
 		<h2>Request</h2>
