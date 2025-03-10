@@ -15,11 +15,12 @@
 				>
 					MIT License
 				</a>
+				<a href="https://lichess.org/patron" target="_blank"> Support Lichess </a>
 			</div>
 			<div>
 				<p>What is...</p>
 				<a href="https://lichess.org/page/accuracy" target="_blank">Accuracy</a>
-				<a href="#">ACPL</a>
+				<a href="https://lichess.org/faq#acpl">ACPL</a>
 			</div>
 			<div>
 				<p>Contact author</p>
@@ -56,6 +57,9 @@ p,
 	justify-content: space-between;
 	flex-wrap: wrap;
 }
+.columns > div:first-of-type {
+	flex-basis: 100%;
+}
 .title {
 	font-size: 1.4rem;
 	margin-top: -0.5rem;
@@ -64,6 +68,11 @@ a {
 	display: block;
 }
 a + a {
-	margin-top: 0.3rem;
+	margin-top: 0.5rem;
+}
+@media (min-width: 640px) {
+	.columns > div:first-of-type {
+		flex-basis: auto;
+	}
 }
 </style>
