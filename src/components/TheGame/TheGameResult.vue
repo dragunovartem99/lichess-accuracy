@@ -26,8 +26,8 @@ const termination = computed(() => {
 const result = computed(() =>
 	props.game.winner
 		? props.game.players[props.game.winner].user?.id === targetId.value
-			? "Victory"
-			: "Defeat"
+			? "Won"
+			: "Lost"
 		: "Draw"
 );
 
@@ -38,11 +38,11 @@ const link = computed(
 
 <template>
 	<figure class="result">
-		<p>{{ termination }}</p>
+		<p>{{ result }}</p>
 		<a :href="link" target="_blank">
 			<html-diagram :fen="game.lastFen" :flipped colored></html-diagram>
 		</a>
-		<p>{{ result }}</p>
+		<p>{{ termination }}</p>
 	</figure>
 </template>
 

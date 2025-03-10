@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import TheHero from "./components/TheHero.vue";
-import TheFilter from "./components/TheFilter.vue";
+import TheRequest from "./components/TheRequest.vue";
 import TheGames from "./components/TheGames.vue";
 import TheFooter from "./components/TheFooter.vue";
 </script>
@@ -8,7 +8,7 @@ import TheFooter from "./components/TheFooter.vue";
 <template>
 	<TheHero />
 	<div class="container">
-		<TheFilter />
+		<TheRequest />
 		<TheGames />
 	</div>
 	<TheFooter />

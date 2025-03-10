@@ -5,10 +5,8 @@ import { options, userChoice } from "@/modules/sort";
 </script>
 
 <template>
-	<div>
-		<IftaLabel>
-			<TreeSelect input-id="sort" :options v-model="userChoice" />
-			<label for="sort">Sort</label>
-		</IftaLabel>
-	</div>
+	<IftaLabel>
+		<TreeSelect input-id="sort" :options v-model="userChoice" />
+		<label for="sort">Sort</label>
+	</IftaLabel>
 </template>

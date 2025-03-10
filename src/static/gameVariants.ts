@@ -1,0 +1,16 @@
+export const gameVariants = [
+	{ label: "Ultrabullet", value: "ultraBullet" },
+	{ label: "Bullet", value: "bullet" },
+	{ label: "Blitz", value: "blitz" },
+	{ label: "Rapid", value: "rapid" },
+	{ label: "Classical", value: "classical" },
+	{ label: "Correspondence", value: "correspondence" },
+	{ label: "Chess960", value: "chess960" },
+	{ label: "Crazyhouse", value: "crazyhouse" },
+	{ label: "Antichess", value: "antichess" },
+	{ label: "Atomic", value: "atomic" },
+	{ label: "Horde", value: "horde" },
+	{ label: "King Of The Hill", value: "kingOfTheHill" },
+	{ label: "Racing Kings", value: "racingKings" },
+	{ label: "Three Check", value: "threeCheck" },
+];
