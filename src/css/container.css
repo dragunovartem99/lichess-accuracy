@@ -12,3 +12,10 @@
 .container-wide {
 	max-width: 1280px;
 }
+
+@media (min-width: 640px) {
+	.container,
+	.container-wide {
+		padding-inline: 2.8rem;
+	}
+}

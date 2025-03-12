@@ -81,8 +81,7 @@ p,
 }
 a {
 	display: block;
-}
-a + a {
+	max-width: max-content;
 	margin-top: 0.5rem;
 }
 @media (min-width: 640px) {

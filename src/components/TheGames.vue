@@ -46,8 +46,11 @@ import TheSort from "./TheSort.vue";
 }
 
 @media (min-width: 640px) {
+	.games {
+		margin-inline: -2.8rem;
+	}
 	.game {
-		padding-inline: 1.4rem;
+		padding-inline: 2.8rem;
 	}
 }
 </style>
