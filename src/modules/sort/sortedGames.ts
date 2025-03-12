@@ -1,34 +1,28 @@
-import type { Analysis } from "@/types";
-import type { SortOrder, SortSide } from "./types";
-
 import { computed } from "vue";
-import { games, targetId } from "@/state/data";
-import { userChoice } from "./userChoice";
-import { sortByMetric } from "./sortByMetric";
+import * as games from "@/state/games";
+import * as target from "@/state/target";
 
-function extractOptions(caseName: string) {
-	const [order, metric, side] = caseName.split("-");
-	return {
-		order: order as SortOrder,
-		metric: metric as keyof Analysis,
-		side: side as SortSide,
-	};
-}
+import { userChoice } from "./userChoice";
+import { extractSortKind } from "@/utils/extractSortKind";
+import { sortByMetric } from "@/utils/sortByMetric";
+import { sortByTime } from "@/utils/sortByTime";
 
 export const sortedGames = computed(() => {
-	const [choice] = Object.keys(userChoice.value);
+	const [choice = "descending-time"] = Object.keys(userChoice.value);
 
 	switch (choice) {
-		case undefined:
-		case "newest":
-			return games.value;
-		case "oldest":
-			return [...games.value].reverse();
+		case "time-descending":
+		case "time-ascending":
+			return sortByTime({
+				...extractSortKind(choice),
+				games: games.list,
+			});
 		default:
+			// @ts-ignore
 			return sortByMetric({
-				...extractOptions(choice),
-				games: games.value,
-				targetId: targetId.value,
+				...extractSortKind(choice),
+				games: games.list,
+				targetId: target.id.value,
 			});
 	}
 });

@@ -1,3 +1,8 @@
+export type SortSide = "target" | "opponent" | "combined";
+export type SortOrder = "ascending" | "descending";
+
+// Lichess Types
+
 export type Color = "white" | "black";
 export type User = { name: string; id: string };
 

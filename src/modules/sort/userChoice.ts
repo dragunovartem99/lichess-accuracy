@@ -1,2 +1,2 @@
 import { ref } from "vue";
-export const userChoice = ref({ latest: true });
+export const userChoice = ref({ "time-descending": true });

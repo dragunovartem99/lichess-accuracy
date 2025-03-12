@@ -1,7 +1,13 @@
+import { apiUrl } from "@/static/apiUrl";
+
 export async function getSuggestions(username: string) {
-	const response = await fetch(
-		`https://lichess.org/api/player/autocomplete?object=true&term=${username}`
-	);
+	//  @ts-ignore: boolean bla-bla-bla
+	const params = new URLSearchParams({
+		object: true,
+		term: username,
+	});
+
+	const response = await fetch(`${apiUrl}/player/autocomplete?${params.toString()}`);
 
 	return await response.json();
 }

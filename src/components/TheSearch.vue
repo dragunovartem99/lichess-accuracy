@@ -1,46 +1,17 @@
 <script setup lang="ts">
-import type { Game, User } from "@/types";
-import type { AutoCompleteCompleteEvent } from "primevue/autocomplete";
+import { ref } from "vue";
+import { fetchGames, fetchSuggestions } from "@/modules/fetch";
+import { isFetching } from "@/state/games";
 
 import AutoComplete from "primevue/autocomplete";
 import Button from "primevue/button";
 import InputGroup from "primevue/inputgroup";
 
-import { ref, watch } from "vue";
-import { setTarget, addGame, clearGames } from "@/state/data";
-import { getSuggestions } from "@/api/getSuggestions";
-import { getGames } from "@/api/getGames";
-
 const username = ref("");
 const suggestions = ref([]);
-const isFetching = ref(false);
 
-watch(isFetching, (newValue) => {
-	if (newValue) {
-		clearGames();
-		fetchGames();
-	}
-});
-
-function search() {
-	setTarget(username.value);
-	isFetching.value = true;
-}
-
-async function fetchSuggestions(event: AutoCompleteCompleteEvent) {
-	if (event.query.length < 3) {
-		return; // API limit
-	}
-
-	const data = await getSuggestions(event.query);
-	suggestions.value = data.result.map((obj: User) => obj.name);
-}
-
-function fetchGames() {
-	const onGame = (game: Game) => addGame(game);
-	const onEnd = () => (isFetching.value = false);
-	getGames({ username: username.value, onGame, onEnd });
-}
+const search = () => fetchGames(username.value);
+const suggest = async () => (suggestions.value = await fetchSuggestions(username.value));
 </script>
 
 <template>
@@ -53,7 +24,7 @@ function fetchGames() {
 			<AutoComplete
 				placeholder="target"
 				v-model="username"
-				@complete="fetchSuggestions"
+				@complete="suggest"
 				:suggestions
 				force-selection
 			/>

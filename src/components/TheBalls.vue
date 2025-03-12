@@ -1,16 +1,22 @@
 <script setup lang="ts">
-import { computed } from "vue";
-import { statistics } from "@/modules/statistics";
 import TheBall from "./TheBall.vue";
 
+import type { Analysis } from "@/types";
+
+import { computed } from "vue";
+import * as games from "@/state/games";
+import { average } from "@/state/statistics";
+
 const balls = computed(() => [
-	{ num: statistics.value.total, lines: ["games analyzed"] },
-	{ num: statistics.value.accuracy.toFixed(1), lines: ["avg. accuracy"] },
-	{ num: statistics.value.acpl.toFixed(1), lines: ["avg. ACPL"] },
-	{ num: statistics.value.inaccuracy.toFixed(1), lines: ["inaccuracies", "avg. per game"] },
-	{ num: statistics.value.mistake.toFixed(1), lines: ["mistakes", "avg. per game"] },
-	{ num: statistics.value.blunder.toFixed(1), lines: ["blunders", "avg. per game"] },
+	{ num: games.list.length, lines: ["games analyzed"] },
+	{ num: format("accuracy"), lines: ["avg. accuracy"] },
+	{ num: format("acpl"), lines: ["avg. ACPL"] },
+	{ num: format("inaccuracy"), lines: ["inaccuracies", "avg. per game"] },
+	{ num: format("mistake"), lines: ["mistakes", "avg. per game"] },
+	{ num: format("blunder"), lines: ["blunders", "avg. per game"] },
 ]);
+
+const format = (metric: string) => average.value[metric as keyof Analysis].toFixed(1);
 </script>
 
 <template>
