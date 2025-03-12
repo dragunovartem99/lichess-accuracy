@@ -6,7 +6,7 @@ const total = reactive({ accuracy: 0, acpl: 0, inaccuracy: 0, mistake: 0, blunde
 
 const calcAverage = (metric: string) => total[metric] / games.list.length || 0;
 
-const average = computed(() => ({
+export const average = computed(() => ({
 	accuracy: calcAverage("accuracy"),
 	acpl: calcAverage("acpl"),
 	inaccuracy: calcAverage("inaccuracy"),
@@ -14,13 +14,11 @@ const average = computed(() => ({
 	blunder: calcAverage("blunder"),
 }));
 
-function count({ game, targetId }: { game: Game; targetId: string }) {
+export function count({ game, targetId }: { game: Game; targetId: string }) {
 	const color = game.players.white.user?.id === targetId ? "white" : "black";
 	Object.keys(total).forEach((metric) => (total[metric] += game.players[color].analysis[metric]));
 }
 
-function clear() {
+export function clear() {
 	Object.keys(total).forEach((metric) => (total[metric] = 0));
 }
-
-export { average, count, clear };
