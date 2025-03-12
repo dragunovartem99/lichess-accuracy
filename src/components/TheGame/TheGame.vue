@@ -18,7 +18,7 @@ const flipped = computed(() =>
 <template>
 	<article :class="flipped">
 		<TheGameMeta class="game-meta" :game />
-		<TheGameResult class="game-result" :game :target-id="target.id" />
+		<TheGameResult class="game-result" :game :flipped :target-id="target.id" />
 		<TheGameSide class="game-side" v-for="player of game.players" :player />
 	</article>
 </template>
