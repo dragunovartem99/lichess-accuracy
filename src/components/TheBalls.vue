@@ -9,7 +9,7 @@ import { average } from "@/state/statistics";
 
 const balls = computed(() => [
 	{ num: games.list.length, lines: ["games analyzed"] },
-	{ num: format("accuracy"), lines: ["avg. accuracy"] },
+	{ num: format("accuracy"), lines: ["avg. accuracy"], class: "percent" },
 	{ num: format("acpl"), lines: ["avg. ACPL"] },
 	{ num: format("inaccuracy"), lines: ["inaccuracies", "avg. per game"] },
 	{ num: format("mistake"), lines: ["mistakes", "avg. per game"] },
@@ -23,7 +23,7 @@ const format = (metric: string) => average.value[metric as keyof Analysis].toFix
 	<TheBall v-for="ball of balls" :content="ball" />
 </template>
 
-<style>
+<style scoped>
 .ball {
 	width: 200px;
 	position: absolute;

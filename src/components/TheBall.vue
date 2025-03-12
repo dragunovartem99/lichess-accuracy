@@ -4,7 +4,7 @@ defineProps(["content"]);
 
 <template>
 	<div class="ball">
-		<b>{{ content.num }}</b>
+		<b :class="content.class">{{ content.num }}</b>
 		<span v-for="line of content.lines">{{ line }}</span>
 	</div>
 </template>

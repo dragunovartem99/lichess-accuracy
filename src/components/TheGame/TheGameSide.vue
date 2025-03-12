@@ -73,6 +73,9 @@ const link = computed(
 .analysis {
 	margin-top: auto;
 }
+.acpl {
+	font-size: 0.8rem;
+}
 b {
 	font-size: 2.4rem;
 	line-height: 1;
@@ -84,6 +87,9 @@ b {
 	}
 	.rating {
 		font-size: 1.2rem;
+	}
+	.acpl {
+		font-size: 1rem;
 	}
 }
 </style>

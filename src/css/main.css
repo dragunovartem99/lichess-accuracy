@@ -34,3 +34,11 @@ section {
 footer {
 	margin-top: auto;
 }
+
+.percent::after {
+	content: "%";
+	vertical-align: top;
+	font-size: 0.5em;
+	margin-left: 0.2em;
+	opacity: 0.5;
+}
