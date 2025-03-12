@@ -1,29 +1,31 @@
 import { ref } from "vue";
 
 export const options = ref([
-	{ key: "latest", label: "Latest games" },
-	{ key: "oldest", label: "Oldest games" },
+	{ key: "time-descending", label: "Latest games" },
+	{ key: "time-ascending", label: "Oldest games" },
 	{
 		key: "best",
 		label: "Best",
 		selectable: false,
 		children: [
 			{
-				key: "best-accuracy",
+				key: "descending-accuracy",
 				label: "Accuracy",
 				selectable: false,
 				children: [
-					{ key: "descending-accuracy-target", label: "Best accuracy of target" },
-					{ key: "descending-accuracy-opponent", label: "Best accuracy of opponent" },
+					{ key: "accuracy-descending-target", label: "Best accuracy of target" },
+					{ key: "accuracy-descending-opponent", label: "Best accuracy of opponent" },
+					{ key: "accuracy-descending-combined", label: "Best accuracy combined" },
 				],
 			},
 			{
-				key: "best-acpl",
+				key: "acpl-ascending",
 				label: "ACPL",
 				selectable: false,
 				children: [
-					{ key: "ascending-acpl-target", label: "Best ACPL of target" },
-					{ key: "ascending-acpl-opponent", label: "Best ACPL of opponent" },
+					{ key: "acpl-ascending-target", label: "Best ACPL of target" },
+					{ key: "acpl-ascending-opponent", label: "Best ACPL of opponent" },
+					{ key: "acpl-ascending-combined", label: "Best ACPL combined" },
 				],
 			},
 		],
@@ -34,21 +36,23 @@ export const options = ref([
 		selectable: false,
 		children: [
 			{
-				key: "worst-accuracy",
+				key: "accuracy-ascending",
 				label: "Accuracy",
 				selectable: false,
 				children: [
-					{ key: "ascending-accuracy-target", label: "Worst accuracy of target" },
-					{ key: "ascending-accuracy-opponent", label: "Worst accuracy of opponent" },
+					{ key: "accuracy-ascending-target", label: "Worst accuracy of target" },
+					{ key: "accuracy-ascending-opponent", label: "Worst accuracy of opponent" },
+					{ key: "accuracy-ascending-combined", label: "Worst accuracy combined" },
 				],
 			},
 			{
-				key: "worst-acpl",
+				key: "acpl-descending",
 				label: "ACPL",
 				selectable: false,
 				children: [
-					{ key: "descending-acpl-target", label: "Worst ACPL of target" },
-					{ key: "descending-acpl-opponent", label: "Worst ACPL of opponent" },
+					{ key: "acpl-descending-target", label: "Worst ACPL of target" },
+					{ key: "acpl-descending-opponent", label: "Worst ACPL of opponent" },
+					{ key: "acpl-descending-combined", label: "Worst ACPL combined" },
 				],
 			},
 		],

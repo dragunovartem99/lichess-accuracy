@@ -1,4 +1,4 @@
-export type SortSide = "target" | "opponent";
+export type SortSide = "target" | "opponent" | "combined";
 export type SortOrder = "ascending" | "descending";
 
 // Lichess Types
