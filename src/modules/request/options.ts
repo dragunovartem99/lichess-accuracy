@@ -1,11 +1,11 @@
 import { ref } from "vue";
 
 export const options = ref({
-	max: "",
+	max: null,
 	perfType: ["blitz", "rapid", "classical"],
-	vs: "",
-	rated: "",
-	color: "",
+	vs: null,
+	rated: null,
+	color: null,
 	since: null,
 	until: null,
 });

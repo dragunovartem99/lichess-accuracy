@@ -2,7 +2,7 @@ export function normalizeRequestOptions(rawOptions: any) {
 	const options: any = {};
 
 	for (const [key, value] of Object.entries(rawOptions)) {
-		if ([null, ""].includes(value)) {
+		if (value === null) {
 			continue;
 		}
 

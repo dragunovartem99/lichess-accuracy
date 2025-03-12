@@ -20,5 +20,5 @@ export const summary = computed(() => {
 		options.value.color && `as ${options.value.color}`,
 	];
 
-	return chunks.filter((chunk) => !!chunk).join(" ") + ". " + variants + ".";
+	return chunks.filter((chunk) => chunk !== null).join(" ") + ". " + variants + ".";
 });
