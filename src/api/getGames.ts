@@ -3,6 +3,7 @@ import { readStream } from "@/utils/readStream";
 import { options as request } from "@/modules/request";
 import { normalizeRequestOptions } from "@/utils/normalizeRequestOptions";
 import { apiUrl } from "@/static/apiUrl";
+import { token } from "@/static/token";
 
 type Options = {
 	username: string;
@@ -16,11 +17,11 @@ export async function getGames({ username, onGame, onEnd }: Options) {
 		accuracy: true,
 		lastFen: true,
 		moves: false,
-		...normalizeRequestOptions(request.value)
+		...normalizeRequestOptions(request.value),
 	});
 
 	const stream = fetch(`${apiUrl}/games/user/${username}?${params.toString()}`, {
-		headers: { Accept: "application/x-ndjson" },
+		headers: { Accept: "application/x-ndjson", Authorization: `Bearer ${token}` },
 	});
 
 	const onMessage = (obj: Game) => onGame(obj);

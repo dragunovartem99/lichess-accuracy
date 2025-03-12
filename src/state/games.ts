@@ -1,11 +1,15 @@
 import type { Game } from "@/types";
-import { reactive } from "vue";
+import { ref, shallowReactive } from "vue";
 
-export const games = reactive({
-	list: [],
-	isFetching: false,
+const isFetching = ref(false);
+const list: Game[] = shallowReactive([]);
 
-	add(game: Game) {
-		this.list.push(game);
-	},
-});
+function add(game: Game) {
+	list.push(game);
+}
+
+function clear() {
+	list.splice(0);
+}
+
+export { isFetching, list, add, clear };

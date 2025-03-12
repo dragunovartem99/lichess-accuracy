@@ -1,15 +1,18 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { overview } from "@/modules/statistics";
+import * as games from "@/state/games";
+import * as statistics from "@/state/statistics";
 import TheBall from "./TheBall.vue";
 
+const format = (metric: string) => statistics.average.value[metric].toFixed(1);
+
 const balls = computed(() => [
-	{ num: overview.value.total, lines: ["games analyzed"] },
-	{ num: overview.value.accuracy.toFixed(1), lines: ["avg. accuracy"] },
-	{ num: overview.value.acpl.toFixed(1), lines: ["avg. ACPL"] },
-	{ num: overview.value.inaccuracy.toFixed(1), lines: ["inaccuracies", "avg. per game"] },
-	{ num: overview.value.mistake.toFixed(1), lines: ["mistakes", "avg. per game"] },
-	{ num: overview.value.blunder.toFixed(1), lines: ["blunders", "avg. per game"] },
+	{ num: games.list.length, lines: ["games analyzed"] },
+	{ num: format("accuracy"), lines: ["avg. accuracy"] },
+	{ num: format("acpl"), lines: ["avg. ACPL"] },
+	{ num: format("inaccuracy"), lines: ["inaccuracies", "avg. per game"] },
+	{ num: format("mistake"), lines: ["mistakes", "avg. per game"] },
+	{ num: format("blunder"), lines: ["blunders", "avg. per game"] },
 ]);
 </script>
 
