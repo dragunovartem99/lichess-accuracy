@@ -7,9 +7,9 @@ import TheFooter from "./components/TheFooter.vue";
 
 <template>
 	<TheHero />
-	<div class="container">
+	<!-- <div class="container">
 		<TheRequest />
 		<TheGames />
 	</div>
-	<TheFooter />
+	<TheFooter /> -->
 </template>
