@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import type { AutoCompleteCompleteEvent } from "primevue/autocomplete";
 import { ref } from "vue";
 import { fetchGames, fetchSuggestions } from "@/modules/fetch";
 import { isFetching } from "@/state/games";

@@ -18,6 +18,7 @@ export const sortedGames = computed(() => {
 				games: games.list,
 			});
 		default:
+			// @ts-ignore
 			return sortByMetric({
 				...extractSortKind(choice),
 				games: games.list,

@@ -35,7 +35,7 @@ const items = computed(() => (games.isFetching.value ? games.list : sortedGames.
 	border-bottom: none;
 	margin-inline: -1.4rem;
 	height: 100vh;
-		scrollbar-gutter: stable both-edges;
+	scrollbar-gutter: stable both-edges;
 }
 
 .game {

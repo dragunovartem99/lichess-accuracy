@@ -1,11 +1,11 @@
 import type { Color, Game, Analysis, SortSide, SortOrder } from "@/types";
 
 type Options = {
-	games: Game[];
-	targetId: string;
-	side: SortSide;
 	kind: keyof Analysis;
 	order: SortOrder;
+	side: SortSide;
+	targetId: string;
+	games: Game[];
 };
 
 function sortByMetricCombined({ games, kind: metric, order }: Options) {

@@ -3,10 +3,12 @@ import { options } from "./options";
 import { gameVariants } from "@/static/gameVariants";
 
 export const summary = computed(() => {
-	const rated = new Map([
-		[true, "rated"],
-		[false, "casual"],
-	]).get(options.value.rated);
+	const rated =
+		options.value.rated !== null &&
+		new Map([
+			[true, "rated"],
+			[false, "casual"],
+		]).get(options.value.rated);
 
 	const variants =
 		!options.value.perfType.length || options.value.perfType.length === gameVariants.length
