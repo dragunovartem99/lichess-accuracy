@@ -1,6 +1,6 @@
 # <img src="public/logo.svg" width="30" alt="Logo of Lichess Accuracy"> Lichess Accuracy
 
-Tool for collecting analyzed games from Lichess.org, with focus on accuracy metrics.
+Tool for collecting analyzed games from Lichess.org, with focus on accuracy metrics
 
 ## Features
 
@@ -12,9 +12,9 @@ Tool for collecting analyzed games from Lichess.org, with focus on accuracy metr
 
 ## Created with
 
-| Role       | Repository                                      |
-| ---------- | ----------------------------------------------- |
-| Build Tool | https://github.com/vitejs/vite                  |
-| Framework  | https://github.com/vuejs/vue                    |
-| UI Library | https://github.com/primefaces/primevue          |
-| Diagrams   | https://github.com/dragunovartem99/html-diagram |
+| Role        | Repository                                      |
+| ----------- | ----------------------------------------------- |
+| Build Tool  | https://github.com/vitejs/vite                  |
+| Framework   | https://github.com/vuejs/core                   |
+| UI Library  | https://github.com/primefaces/primevue          |
+| Chessboards | https://github.com/dragunovartem99/html-diagram |
