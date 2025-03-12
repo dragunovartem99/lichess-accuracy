@@ -1,2 +1,2 @@
-import { statistics } from "./statistics";
-export { statistics };
+import { overview } from "./overview";
+export { overview };

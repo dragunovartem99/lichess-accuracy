@@ -2,10 +2,9 @@ import { computed } from "vue";
 import { targetId, games } from "@/state/data";
 import { calcAverage } from "./calcAverage";
 
-export const statistics = computed(() => {
-	const gameList = games.value;
+export const overview = computed(() => {
 	return {
-		total: gameList.length,
+		total: games.value.length,
 		inaccuracy: calcAverage({
 			key: "inaccuracy",
 			targetId: targetId.value,
