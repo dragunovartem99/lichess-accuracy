@@ -66,7 +66,7 @@ const color = ref([
 				<div class="dates">
 					<FormControl label="From">
 						<DatePicker
-							placeholder="Account creation"
+							placeholder="Registration"
 							v-model="options.since"
 							dateFormat="dd/mm/yy"
 						/>

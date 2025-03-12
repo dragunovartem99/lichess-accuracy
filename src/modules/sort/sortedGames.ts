@@ -1,10 +1,11 @@
-import type { Analysis } from "@/types";
-import type { SortOrder, SortSide } from "./types";
+import type { Analysis, SortSide, SortOrder } from "@/types";
 
 import { computed } from "vue";
-import { games, targetId } from "@/state/data";
+import * as games from "@/state/games";
+import * as target from "@/state/target";
+
+import { sortByMetric } from "@/utils/sortByMetric";
 import { userChoice } from "./userChoice";
-import { sortByMetric } from "./sortByMetric";
 
 function extractOptions(caseName: string) {
 	const [order, metric, side] = caseName.split("-");
@@ -21,14 +22,14 @@ export const sortedGames = computed(() => {
 	switch (choice) {
 		case undefined:
 		case "newest":
-			return games.value;
+			return games.list;
 		case "oldest":
-			return [...games.value].reverse();
+			return [...games.list].reverse();
 		default:
 			return sortByMetric({
 				...extractOptions(choice),
-				games: games.value,
-				targetId: targetId.value,
+				games: games.list,
+				targetId: target.id.value,
 			});
 	}
 });
