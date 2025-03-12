@@ -31,6 +31,7 @@ const failures: FailureKeys[] = ["blunder", "mistake", "inaccuracy"];
 	line-break: anywhere;
 	line-height: 0;
 	letter-spacing: -0.4rem;
+	user-select: none;
 }
 .blunder {
 	color: var(--p-red-600);
