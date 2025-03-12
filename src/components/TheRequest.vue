@@ -30,10 +30,12 @@ const color = ref([
 			<div>
 				<FormControl label="Game limit">
 					<InputText
-						placeholder="All games"
+						placeholder="10000 (Lichess limit)"
 						step="25"
 						type="number"
 						v-model="options.max"
+						min="0"
+						max="10000"
 					/>
 				</FormControl>
 				<FormControl label="Rated">

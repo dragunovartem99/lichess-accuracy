@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { sortedGames } from "@/modules/sort";
+import * as games from "@/state/games";
 import TheGame from "./TheGame/TheGame.vue";
 import TheSort from "./TheSort.vue";
 </script>
@@ -8,11 +8,11 @@ import TheSort from "./TheSort.vue";
 	<section>
 		<h2>Games</h2>
 		<div class="controls">
-			<TheSort />
+			<!--<TheSort />-->
 		</div>
 		<DynamicScroller
-			v-if="sortedGames.length"
-			:items="sortedGames"
+			v-if="games.list.length"
+			:items="games.list"
 			:min-item-size="310"
 			class="games"
 		>

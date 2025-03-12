@@ -2,7 +2,7 @@
 import type { Game } from "@/types";
 
 import { computed } from "vue";
-import { targetId } from "@/state/data";
+import * as target from "@/state/target";
 
 import TheGameMeta from "./TheGameMeta.vue";
 import TheGameResult from "./TheGameResult.vue";
@@ -11,15 +11,15 @@ import TheGameSide from "./TheGameSide.vue";
 const props = defineProps<{ game: Game }>();
 
 const flipped = computed(() =>
-	props.game.players.black.user?.id === targetId.value ? "flipped" : null
+	props.game.players.black.user?.id === target.id.value ? "flipped" : null
 );
 </script>
 
 <template>
 	<article :class="flipped">
 		<TheGameMeta class="game-meta" :game />
-		<TheGameResult class="game-result" :game :flipped />
-		<TheGameSide class="game-side" :player v-for="player of game.players" />
+		<TheGameResult class="game-result" :game :target-id="target.id" />
+		<TheGameSide class="game-side" v-for="player of game.players" :player />
 	</article>
 </template>
 
