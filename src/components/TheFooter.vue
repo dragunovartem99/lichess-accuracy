@@ -2,7 +2,7 @@
 const columns = [
 	{
 		title: {
-			img: { src: "/logo.svg", alt: "Logo" },
+			img: { src: "logo.svg", alt: "Logo" },
 			heading: "Lichess Accuracy",
 		},
 		links: [
