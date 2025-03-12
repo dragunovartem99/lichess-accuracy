@@ -1,6 +1,9 @@
 #!/bin/bash
 
-flow="lichess-accuracy"
+###############
+flow="accuracy"
+###############
+
 is_active=$(tmux list-sessions | grep $flow)
 
 if [[ ! $is_active ]]; then

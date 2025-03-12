@@ -5,10 +5,15 @@
 :root {
 	font-family: "Work Sans", sans-serif;
 	--diagram-font: "Diagram Cases";
+	--diagram-light: var(--p-surface-200);
+	--diagram-dark: var(--p-surface-400);
+}
+
+body {
+	background-color: var(--p-surface-100);
 }
 
 #app {
-	background-color: var(--p-surface-100);
 	min-height: 100dvh;
 	display: flex;
 	flex-direction: column;
