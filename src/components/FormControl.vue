@@ -5,7 +5,7 @@ defineProps<{ label: string }>();
 <template>
 	<p>
 		<label>
-			{{ label }}
+			<span> {{ label }} </span>
 			<slot />
 		</label>
 	</p>
@@ -13,9 +13,11 @@ defineProps<{ label: string }>();
 
 <style scoped>
 label {
-	font-weight: 500;
 	display: flex;
 	flex-direction: column;
 	gap: 0.3rem;
+}
+span {
+	font-weight: 600;
 }
 </style>

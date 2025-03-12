@@ -98,13 +98,17 @@ const color = ref([
 }
 .controls {
 	display: flex;
-	column-gap: 1.6rem;
+	flex-wrap: wrap;
+	gap: 1.6rem;
+	padding: 1.6rem;
+	background-color: var(--p-neutral-200);
+	border-radius: var(--p-border-radius-md);
 }
 .controls > * {
 	flex: 1;
 	display: inherit;
+	gap: inherit;
 	flex-direction: column;
-	gap: 0.8rem;
 }
 .dates {
 	display: inherit;
