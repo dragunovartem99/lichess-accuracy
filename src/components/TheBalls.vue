@@ -23,7 +23,7 @@ const format = (metric: string) => average.value[metric as keyof Analysis].toFix
 	<TheBall v-for="ball of balls" :content="ball" />
 </template>
 
-<style scoped>
+<style>
 .ball {
 	width: 200px;
 	position: absolute;
