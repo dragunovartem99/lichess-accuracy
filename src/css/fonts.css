@@ -4,11 +4,6 @@
 }
 
 @font-face {
-	font-family: "Diagram Smart";
-	src: url("/DiagramSmart.woff2");
-}
-
-@font-face {
 	font-family: "Work Sans";
 	src: url("/WorkSans.ttf");
 }
