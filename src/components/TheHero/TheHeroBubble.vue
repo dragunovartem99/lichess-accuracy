@@ -16,6 +16,7 @@ defineProps(["content"]);
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	font-size: 0.8rem;
 }
 
 .ball::before {
@@ -33,8 +34,15 @@ span {
 	z-index: 1;
 	color: var(--ball-text);
 }
-
 b {
-	font-size: 3.2rem;
+	font-size: 2.8rem;
+}
+@media (min-width: 480px) {
+	.ball {
+		font-size: 1rem;
+	}
+	b {
+		font-size: 3.2rem;
+	}
 }
 </style>

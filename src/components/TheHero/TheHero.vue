@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import TheSearch from "./TheSearch.vue";
-import TheBalls from "./TheBalls.vue";
+import TheSearch from "../TheSearch.vue";
+import TheHeroBubbles from "./TheHeroBubbles.vue";
 </script>
 
 <template>
 	<section class="hero">
 		<div class="container-wide">
-			<TheBalls />
+			<TheHeroBubbles />
 			<TheSearch />
 		</div>
 	</section>
@@ -30,7 +30,7 @@ import TheBalls from "./TheBalls.vue";
 	background-color: var(--p-surface-300);
 }
 .container-wide {
-	min-height: min(80vh, 600px);
+	height: 600px;
 	position: relative;
 	display: grid;
 	place-items: center;

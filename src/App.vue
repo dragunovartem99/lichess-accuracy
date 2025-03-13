@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import TheHero from "./components/TheHero.vue";
+import TheHero from "./components/TheHero/TheHero.vue";
 import TheRequest from "./components/TheRequest.vue";
 import TheGames from "./components/TheGames.vue";
 import TheFooter from "./components/TheFooter.vue";
