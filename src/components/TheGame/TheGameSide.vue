@@ -27,9 +27,9 @@ const link = computed(
 				</span>
 			</p>
 		</div>
-		<div class="acpl">
-			<b>{{ player.analysis.acpl }}</b>
-			<p>ACPL</p>
+		<div class="accuracy">
+			<b class="percent">{{ player.analysis.accuracy }}</b>
+			<p>accuracy</p>
 		</div>
 		<TheGameAnalysis :analysis="player.analysis" />
 	</div>
@@ -69,11 +69,11 @@ const link = computed(
 .negative {
 	color: var(--p-red-700);
 }
-.acpl,
+.accuracy,
 .analysis {
 	margin-top: auto;
 }
-.acpl {
+.accuracy {
 	font-size: 0.8rem;
 }
 b {
@@ -88,7 +88,7 @@ b {
 	.rating {
 		font-size: 1.2rem;
 	}
-	.acpl {
+	.accuracy {
 		font-size: 1rem;
 	}
 }

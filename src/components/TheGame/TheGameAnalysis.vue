@@ -13,9 +13,8 @@ const failures: FailureKeys[] = ["blunder", "mistake", "inaccuracy"];
 				{{ "&bullet;".repeat(analysis[failure]) }}
 			</p>
 		</template>
-		<p class="accuracy">
-			<span>acc</span>
-			<span>{{ analysis.accuracy }}%</span>
+		<p class="acpl">
+			<span>acpl: {{ analysis.acpl }}</span>
 			<span class="point">&bullet;</span>
 		</p>
 	</div>
@@ -42,16 +41,10 @@ const failures: FailureKeys[] = ["blunder", "mistake", "inaccuracy"];
 .inaccuracy {
 	color: var(--p-sky-500);
 }
-.accuracy {
+.acpl {
 	display: flex;
 	justify-content: end;
 	align-items: center;
-}
-.accuracy :first-child {
-	margin-right: 0.3rem;
-}
-.accuracy :first-child::after {
-	content: ".";
 }
 @media (min-width: 640px) {
 	.analysis {
@@ -63,9 +56,6 @@ const failures: FailureKeys[] = ["blunder", "mistake", "inaccuracy"];
 	.point {
 		font-size: 4.5rem;
 		letter-spacing: -0.55rem;
-	}
-	.accuracy :first-child::after {
-		content: "uracy"; /* forgive me, Jesus */
 	}
 }
 </style>
