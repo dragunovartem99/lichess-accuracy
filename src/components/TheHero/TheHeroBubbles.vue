@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import TheBall from "./TheBall.vue";
-
 import type { Analysis } from "@/types";
+
+import TheHeroBubble from "./TheHeroBubble.vue";
 
 import { computed } from "vue";
 import * as games from "@/state/games";
@@ -20,7 +20,7 @@ const format = (metric: string) => average.value[metric as keyof Analysis].toFix
 </script>
 
 <template>
-	<TheBall v-for="ball of balls" :content="ball" />
+	<TheHeroBubble v-for="ball of balls" :content="ball" />
 </template>
 
 <style>

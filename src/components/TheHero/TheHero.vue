@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import TheSearch from "./TheSearch.vue";
-import TheBalls from "./TheBalls.vue";
+import TheSearch from "../TheSearch.vue";
+import TheHeroBubbles from "./TheHeroBubbles.vue";
 </script>
 
 <template>
 	<section class="hero">
 		<div class="container-wide">
-			<TheBalls />
+			<TheHeroBubbles />
 			<TheSearch />
 		</div>
 	</section>
