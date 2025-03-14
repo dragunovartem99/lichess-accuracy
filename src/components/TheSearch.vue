@@ -37,8 +37,8 @@ const suggest = async () => (suggestions.value = await fetchSuggestions(username
 hgroup {
 	display: flex;
 	align-items: baseline;
-	gap: 0 0.5rem;
-	margin-bottom: 1rem;
+	gap: 0.5rem;
+	margin-bottom: 0.5rem;
 }
 hgroup > * {
 	font-size: 1.8rem;
@@ -46,6 +46,9 @@ hgroup > * {
 	text-wrap: nowrap;
 }
 @media (min-width: 480px) {
+	hgroup {
+		margin-bottom: 1rem;
+	}
 	hgroup > * {
 		font-size: 2rem;
 	}
