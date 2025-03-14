@@ -6,22 +6,30 @@ import TheGameAnalysis from "./TheGameAnalysis.vue";
 
 const props = defineProps<{ player: Player }>();
 
-const rating = computed(() => props.player.rating + (props.player.provisional ? "?" : ""));
-const ratingDiffType = computed(() => (props.player.ratingDiff > 0 ? "positive" : "negative"));
+const link = computed(() => props.player.user && `https://lichess.org/@/${props.player.user.name}`);
 
-const link = computed(
-	() => props.player.user?.id && "https://lichess.org/@/" + props.player.user.name
-);
+const username = computed(() => props.player.user?.name || "Stockfish");
+
+const strength = computed(() => {
+	const rating = props.player.rating;
+	if (rating) {
+		return rating + (props.player.provisional ? "?" : "");
+	} else {
+		return "level " + props.player.aiLevel;
+	}
+});
+
+const ratingDiffType = computed(() => (props.player.ratingDiff > 0 ? "positive" : "negative"));
 </script>
 
 <template>
 	<div class="side">
 		<div class="player">
 			<a class="name" :href="link" target="_blank">
-				{{ player.user?.name }}
+				{{ username }}
 			</a>
 			<p class="rating">
-				{{ rating }}
+				{{ strength }}
 				<span :class="ratingDiffType" v-if="player.ratingDiff">
 					{{ player.ratingDiff }}
 				</span>
