@@ -1,16 +1,16 @@
 <script setup lang="ts">
-defineProps(["content"]);
+defineProps(["bubble"]);
 </script>
 
 <template>
-	<div class="ball">
-		<b :class="content.class">{{ content.num }}</b>
-		<span v-for="line of content.lines">{{ line }}</span>
+	<div class="bubble">
+		<b :class="bubble.class">{{ bubble.metric }}</b>
+		<span v-for="line of bubble.lines">{{ line }}</span>
 	</div>
 </template>
 
 <style scoped>
-.ball {
+.bubble {
 	aspect-ratio: 1/1;
 	display: flex;
 	flex-direction: column;
@@ -19,26 +19,26 @@ defineProps(["content"]);
 	font-size: 0.8rem;
 }
 
-.ball::before {
+.bubble::before {
 	content: "";
 	position: absolute;
 	inset: 0;
-	background-color: var(--ball-bg);
+	background-color: var(--bubble-bg);
 	border-radius: 50%;
 	animation: float-1 4s linear infinite;
 	box-shadow: 0 0 25px #00000011;
-	animation: var(--ball-animation);
+	animation: var(--bubble-animation);
 }
 b,
 span {
 	z-index: 1;
-	color: var(--ball-text);
+	color: var(--bubble-text);
 }
 b {
 	font-size: 2.8rem;
 }
 @media (min-width: 480px) {
-	.ball {
+	.bubble {
 		font-size: 1rem;
 	}
 	b {
