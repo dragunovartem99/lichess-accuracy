@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Game } from "@/types";
-import { gameVariants } from "@/static/gameVariants";
 import { computed } from "vue";
+import { findVariantLabel } from "@/utils/findVariantLabel";
 
 const props = defineProps<{ game: Game }>();
 
@@ -10,14 +10,11 @@ const datetime = computed(() => new Date(props.game.lastMoveAt).toISOString());
 
 const seriousness = computed(() => (props.game.rated ? "Rated" : "Casual"));
 
-const variant = computed(() => {
-	if (props.game.variant === "standard") {
-		return;
-	}
+const speed = computed(() => findVariantLabel(props.game.speed).toLowerCase())
 
-	const variant = gameVariants.find((variant) => variant.value === props.game.perf)!;
-	return variant.label.toLowerCase();
-});
+const variant = computed(
+	() => props.game.variant !== "standard" && findVariantLabel(props.game.perf).toLowerCase()
+);
 </script>
 
 <template>
@@ -25,7 +22,7 @@ const variant = computed(() => {
 		<time :datetime>{{ date }}</time>
 		<p>
 			<span>{{ seriousness }}</span>
-			<span>{{ game.speed }}</span>
+			<span>{{ speed }}</span>
 			<span v-if="variant">{{ variant }}</span>
 		</p>
 	</div>

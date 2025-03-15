@@ -1,6 +1,7 @@
 import { computed } from "vue";
 import { options } from "./options";
 import { gameVariants } from "@/static/gameVariants";
+import { findVariantLabel } from "@/utils/findVariantLabel";
 
 export const summary = computed(() => {
 	const gameLimit = options.value.max || "All";
@@ -15,10 +16,7 @@ export const summary = computed(() => {
 
 	const chosenVariants = options.value.perfType;
 
-	const variantsLabels = chosenVariants.map((chosen) => {
-		const variant = gameVariants.find((variant) => variant.value === chosen)!;
-		return variant.label.toLowerCase();
-	});
+	const variantsLabels = chosenVariants.map((chosen) => findVariantLabel(chosen).toLowerCase());
 
 	const variants =
 		!chosenVariants.length || chosenVariants.length === gameVariants.length
