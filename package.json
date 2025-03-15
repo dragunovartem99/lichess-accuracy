@@ -21,7 +21,7 @@
 	"scripts": {
 		"build": "vue-tsc -b && vite build",
 		"dev": "vite",
-		"flow": "bash .flow",
+		"flow": "./.flow",
 		"format": "prettier . --write",
 		"preview": "vite preview"
 	},
