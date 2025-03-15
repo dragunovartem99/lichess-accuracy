@@ -19,7 +19,7 @@ const bubbles = computed(() => [
 const format = (metric: string) => {
 	const value = statisitics.average.value[metric as keyof Analysis];
 	return parseFloat(value.toFixed(1));
-}
+};
 </script>
 
 <template>

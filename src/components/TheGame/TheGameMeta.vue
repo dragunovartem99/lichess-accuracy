@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { Game } from "@/types";
+import { gameVariants } from "@/static/gameVariants";
 import { computed } from "vue";
 
 const props = defineProps<{ game: Game }>();
@@ -8,7 +9,15 @@ const date = computed(() => new Intl.DateTimeFormat("en-GB").format(props.game.l
 const datetime = computed(() => new Date(props.game.lastMoveAt).toISOString());
 
 const seriousness = computed(() => (props.game.rated ? "Rated" : "Casual"));
-const variant = computed(() => props.game.variant !== "standard" && props.game.perf);
+
+const variant = computed(() => {
+	if (props.game.variant === "standard") {
+		return;
+	}
+
+	const variant = gameVariants.find((variant) => variant.value === props.game.perf)!;
+	return variant.label.toLowerCase();
+});
 </script>
 
 <template>
