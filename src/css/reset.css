@@ -3,6 +3,7 @@
 *::after {
 	margin: 0;
 	box-sizing: border-box;
+	font-synthesis: none; /* webkit makes fonts ugly */
 }
 
 a {
