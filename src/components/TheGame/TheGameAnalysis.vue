@@ -48,7 +48,7 @@ const failures: FailureKeys[] = ["blunder", "mistake", "inaccuracy"];
 }
 @media (min-width: 640px) {
 	.analysis {
-		font-size: 1.2rem;
+		font-size: var(--font-2);
 	}
 	.analysis p {
 		line-height: 1.5rem;

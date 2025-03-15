@@ -71,7 +71,7 @@ a:hover html-diagram {
 
 @media (min-width: 640px) {
 	p {
-		font-size: 1.2rem;
+		font-size: var(--font-2);
 	}
 }
 </style>

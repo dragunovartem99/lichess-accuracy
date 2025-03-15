@@ -82,7 +82,7 @@ const ratingDiffType = computed(() => (props.player.ratingDiff > 0 ? "positive" 
 	margin-top: auto;
 }
 .accuracy {
-	font-size: 0.8rem;
+	font-size: var(--font-0);
 }
 b {
 	font-size: 2.4rem;
@@ -90,14 +90,14 @@ b {
 }
 @media (min-width: 640px) {
 	.name {
-		font-size: 1.4rem;
+		font-size: var(--font-3);
 		margin-bottom: 0.1rem;
 	}
 	.rating {
-		font-size: 1.2rem;
+		font-size: var(--font-2);
 	}
 	.accuracy {
-		font-size: 1rem;
+		font-size: var(--font-1);
 	}
 }
 </style>

@@ -76,7 +76,7 @@ p,
 	flex-basis: 100%;
 }
 .title {
-	font-size: 1.4rem;
+	font-size: var(--font-4);
 	margin-top: calc(var(--space-0) * -1);
 }
 a {

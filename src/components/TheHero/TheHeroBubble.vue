@@ -16,7 +16,7 @@ defineProps(["bubble"]);
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	font-size: 0.8rem;
+	font-size: var(--font-0);
 }
 
 .bubble::before {
@@ -39,7 +39,7 @@ b {
 }
 @media (min-width: 480px) {
 	.bubble {
-		font-size: 1rem;
+		font-size: var(--font-1);
 	}
 	b {
 		font-size: 3.2rem;

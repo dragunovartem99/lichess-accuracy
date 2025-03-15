@@ -38,11 +38,11 @@ span + span::before {
 }
 @media (min-width: 640px) {
 	time {
-		font-size: 1.4rem;
+		font-size: var(--font-3);
 		margin-bottom: var(--space-0);
 	}
 	.meta {
-		font-size: 1.2rem;
+		font-size: var(--font-2);
 	}
 }
 </style>

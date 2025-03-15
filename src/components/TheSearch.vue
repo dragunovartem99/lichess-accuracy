@@ -41,7 +41,7 @@ hgroup {
 	margin-bottom: var(--space-0);
 }
 hgroup > * {
-	font-size: 1.8rem;
+	font-size: var(--font-5);
 	text-wrap: nowrap;
 }
 @media (min-width: 480px) {
@@ -49,7 +49,7 @@ hgroup > * {
 		margin-bottom: var(--space-1);
 	}
 	hgroup > * {
-		font-size: 2rem;
+		font-size: var(--font-6);
 	}
 }
 </style>

@@ -1,4 +1,5 @@
 :root {
+	/* margins, paddings, gaps, etc. */
 	--space-0: 0.5rem;
 	--space-1: 1rem;
 	--space-2: 1.2rem;
@@ -9,4 +10,14 @@
 	--space-7: 2.2rem;
 	--space-8: 2.4rem;
 	--space-9: 2.8rem;
+}
+
+:root {
+	--font-0: 0.8rem;
+	--font-1: 1rem;
+	--font-2: 1.2rem;
+	--font-3: 1.4rem;
+	--font-4: 1.6rem;
+	--font-5: 1.8rem;
+	--font-6: 2rem;
 }
