@@ -9,7 +9,7 @@ export const options = ref([
 		selectable: false,
 		children: [
 			{
-				key: "descending-accuracy",
+				key: "accuracy-descending",
 				label: "Accuracy",
 				selectable: false,
 				children: [
