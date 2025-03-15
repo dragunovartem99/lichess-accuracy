@@ -8,7 +8,7 @@ import { sortByMetric } from "@/utils/sortByMetric";
 import { sortByTime } from "@/utils/sortByTime";
 
 export const sortedGames = computed(() => {
-	const [choice = "descending-time"] = Object.keys(userChoice.value);
+	const [choice = "time-descending"] = Object.keys(userChoice.value);
 
 	switch (choice) {
 		case "time-descending":
