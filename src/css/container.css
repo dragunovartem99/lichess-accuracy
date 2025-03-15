@@ -2,7 +2,7 @@
 .container-wide {
 	width: 100%;
 	margin-inline: auto;
-	padding-inline: 1.4rem;
+	padding-inline: var(--space-3);
 }
 
 .container {
@@ -16,6 +16,6 @@
 @media (min-width: 640px) {
 	.container,
 	.container-wide {
-		padding-inline: 2.8rem;
+		padding-inline: var(--space-9);
 	}
 }

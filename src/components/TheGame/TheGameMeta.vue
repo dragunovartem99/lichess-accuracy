@@ -27,7 +27,7 @@ const variant = computed(() => props.game.variant !== "standard" && props.game.p
 	background-color: var(--p-surface-800);
 	color: var(--p-surface-50);
 	text-align: center;
-	padding: 0.4rem;
+	padding: var(--space-0);
 }
 time {
 	font-weight: 600;
@@ -39,7 +39,7 @@ span + span::before {
 @media (min-width: 640px) {
 	time {
 		font-size: 1.4rem;
-		margin-bottom: 0.5rem;
+		margin-bottom: var(--space-0);
 	}
 	.meta {
 		font-size: 1.2rem;

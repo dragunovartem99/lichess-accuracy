@@ -56,7 +56,7 @@ const columns = [
 footer {
 	background-color: var(--p-surface-800);
 	color: var(--p-surface-100);
-	padding-block: 3rem;
+	padding-block: var(--space-9);
 }
 img {
 	width: 20px;
@@ -64,11 +64,11 @@ img {
 p,
 .title {
 	font-weight: 700;
-	margin-bottom: 1rem;
+	margin-bottom: var(--space-1);
 }
 .columns {
 	display: flex;
-	gap: 3rem;
+	gap: var(--space-9);
 	justify-content: space-between;
 	flex-wrap: wrap;
 }
@@ -77,12 +77,12 @@ p,
 }
 .title {
 	font-size: 1.4rem;
-	margin-top: -0.5rem;
+	margin-top: calc(var(--space-0) * -1);
 }
 a {
 	display: block;
 	max-width: max-content;
-	margin-top: 0.5rem;
+	margin-top: var(--space-0);
 }
 @media (min-width: 640px) {
 	.columns > div:first-of-type {

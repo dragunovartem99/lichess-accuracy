@@ -1,0 +1,15 @@
+a:hover {
+	color: var(--p-sky-500);
+}
+
+h2 {
+	margin-bottom: var(--space-1);
+}
+
+.percent::after {
+	content: "%";
+	vertical-align: top;
+	font-size: 0.5em;
+	margin-left: 0.2em;
+	opacity: 0.5;
+}

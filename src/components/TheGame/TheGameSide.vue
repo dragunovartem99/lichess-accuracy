@@ -48,7 +48,7 @@ const ratingDiffType = computed(() => (props.player.ratingDiff > 0 ? "positive" 
 	display: grid;
 	grid-template-columns: auto 1fr;
 	flex-wrap: wrap;
-	column-gap: 0.5rem;
+	column-gap: var(--space-0);
 	justify-content: space-between;
 }
 .player {

@@ -40,7 +40,7 @@ article {
 	width: min(310px, 45vw);
 }
 .game-side {
-	padding: 0.5rem;
+	padding: var(--space-0);
 	border-bottom: 3px dashed var(--p-surface-300);
 }
 .game-side:last-of-type {
@@ -52,7 +52,7 @@ article {
 }
 @media (min-width: 640px) {
 	.game-side {
-		padding: 1rem;
+		padding: var(--space-1);
 	}
 }
 </style>

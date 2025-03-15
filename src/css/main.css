@@ -1,6 +1,8 @@
+@import url("variables.css");
 @import url("fonts.css");
 @import url("reset.css");
 @import url("container.css");
+@import url("typography.css");
 @import url("float.css");
 
 :root {
@@ -20,26 +22,10 @@ body {
 	flex-direction: column;
 }
 
-h2 {
-	margin-bottom: 1rem;
-}
-
-a:hover {
-	color: var(--p-sky-500);
-}
-
 section {
-	margin-bottom: 2rem;
+	margin-bottom: var(--space-6);
 }
 
 footer {
 	margin-top: auto;
-}
-
-.percent::after {
-	content: "%";
-	vertical-align: top;
-	font-size: 0.5em;
-	margin-left: 0.2em;
-	opacity: 0.5;
 }

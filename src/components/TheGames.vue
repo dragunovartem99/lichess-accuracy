@@ -31,12 +31,12 @@ const items = computed(() => (games.isFetching.value ? games.list : sortedGames.
 
 <style scoped>
 .controls {
-	margin-bottom: 2rem;
+	margin-bottom: var(--space-6);
 }
 
 .games {
 	border-bottom: none;
-	margin-inline: -1.4rem;
+	margin-inline: calc(var(--space-4) * -1);
 	scrollbar-gutter: stable both-edges;
 }
 
@@ -45,7 +45,7 @@ const items = computed(() => (games.isFetching.value ? games.list : sortedGames.
 }
 
 .item {
-	padding-bottom: 2rem;
+	padding-bottom: var(--space-6);
 }
 
 .item > * {
@@ -54,7 +54,7 @@ const items = computed(() => (games.isFetching.value ? games.list : sortedGames.
 
 @media (min-width: 640px) {
 	.item {
-		padding-inline: 1.4rem;
+		padding-inline: var(--space-3);
 	}
 }
 </style>

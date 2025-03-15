@@ -96,13 +96,13 @@ const color = ref([
 
 <style scoped>
 .summary {
-	margin-bottom: 1.6rem;
+	margin-bottom: var(--space-4);
 }
 .controls {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 1.6rem;
-	padding: 1.6rem;
+	gap: var(--space-4);
+	padding: var(--space-4);
 	background-color: var(--p-neutral-200);
 	border-radius: var(--p-border-radius-md);
 }
