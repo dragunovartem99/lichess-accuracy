@@ -10,7 +10,7 @@ import InputGroup from "primevue/inputgroup";
 const username = ref("");
 const suggestions = ref([]);
 
-const search = () => fetchGames(username.value);
+const search = () => username.value && fetchGames(username.value);
 const suggest = async () => (suggestions.value = await fetchSuggestions(username.value));
 </script>
 
