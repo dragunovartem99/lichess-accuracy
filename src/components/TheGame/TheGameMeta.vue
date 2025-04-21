@@ -10,7 +10,7 @@ const datetime = computed(() => new Date(props.game.lastMoveAt).toISOString());
 
 const seriousness = computed(() => (props.game.rated ? "Rated" : "Casual"));
 
-const speed = computed(() => findVariantLabel(props.game.speed).toLowerCase())
+const speed = computed(() => findVariantLabel(props.game.speed).toLowerCase());
 
 const variant = computed(
 	() => props.game.variant !== "standard" && findVariantLabel(props.game.perf).toLowerCase()
