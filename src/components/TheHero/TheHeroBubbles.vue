@@ -1,13 +1,18 @@
 <script setup lang="ts">
 import TheHeroBubble from "./TheHeroBubble.vue";
 
-import type { Analysis } from "@/types";
+import type { Analysis, Bubble } from "@/types";
 
 import { computed } from "vue";
 import * as games from "@/state/games";
 import * as statisitics from "@/state/statistics";
 
-const bubbles = computed(() => [
+const format = (metric: string) => {
+	const value = statisitics.average.value[metric as keyof Analysis];
+	return parseFloat(value.toFixed(1));
+};
+
+const bubbles = computed<Bubble[]>(() => [
 	{ metric: games.list.length, lines: ["games analyzed"] },
 	{ metric: format("accuracy"), lines: ["avg. accuracy"], class: "percent" },
 	{ metric: format("acpl"), lines: ["avg. ACPL"] },
@@ -15,11 +20,6 @@ const bubbles = computed(() => [
 	{ metric: format("mistake"), lines: ["mistakes", "avg. per game"] },
 	{ metric: format("blunder"), lines: ["blunders", "avg. per game"] },
 ]);
-
-const format = (metric: string) => {
-	const value = statisitics.average.value[metric as keyof Analysis];
-	return parseFloat(value.toFixed(1));
-};
 </script>
 
 <template>

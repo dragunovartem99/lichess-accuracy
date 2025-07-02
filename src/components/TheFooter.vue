@@ -1,5 +1,20 @@
 <script setup lang="ts">
-const columns = [
+type ColumnLink = { label: string; href: string };
+
+type BaseColumn = {
+	links: ColumnLink[];
+};
+
+type MainColumn = BaseColumn & {
+	title: {
+		img: { src: string; alt: string };
+		heading: string;
+	};
+};
+
+type AuxColumn = BaseColumn & { heading: string };
+
+const columns: [MainColumn, ...AuxColumn[]] = [
 	{
 		title: {
 			img: { src: "logo.svg", alt: "Logo" },
@@ -39,11 +54,14 @@ const columns = [
 	<footer>
 		<div class="columns container-wide">
 			<div v-for="column of columns">
-				<p class="title" v-if="column.title">
-					<img :src="column.title.img.src" :alt="column.title.img.alt" />
-					{{ column.title.heading }}
+				<p class="title" v-if="(column as MainColumn).title">
+					<img
+						:src="(column as MainColumn).title.img.src"
+						:alt="(column as MainColumn).title.img.alt"
+					/>
+					{{ (column as MainColumn).title.heading }}
 				</p>
-				<p v-else>{{ column.heading }}</p>
+				<p v-else>{{ (column as AuxColumn).heading }}</p>
 				<a v-for="link of column.links" :href="link.href" target="_blank">
 					{{ link.label }}
 				</a>

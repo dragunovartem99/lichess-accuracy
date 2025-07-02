@@ -4,11 +4,17 @@ import type { Player } from "@/types";
 import { computed } from "vue";
 import TheGameAnalysis from "./TheGameAnalysis.vue";
 
-const props = defineProps<{ player: Player }>();
+const props = defineProps<{
+	player: Player;
+}>();
 
-const link = computed(() => props.player.user && `https://lichess.org/@/${props.player.user.name}`);
+const link = computed(() => {
+	return props.player.user && `https://lichess.org/@/${props.player.user.name}`;
+});
 
-const username = computed(() => props.player.user?.name || "Stockfish");
+const username = computed(() => {
+	return props.player.user?.name || "Stockfish";
+});
 
 const strength = computed(() => {
 	const rating = props.player.rating;
@@ -19,7 +25,9 @@ const strength = computed(() => {
 	}
 });
 
-const ratingDiffType = computed(() => (props.player.ratingDiff > 0 ? "positive" : "negative"));
+const ratingDiffType = computed(() => {
+	return props.player.ratingDiff > 0 ? "positive" : "negative";
+});
 </script>
 
 <template>

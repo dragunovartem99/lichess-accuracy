@@ -5,16 +5,25 @@ import { findVariantLabel } from "@/utils/findVariantLabel";
 
 const props = defineProps<{ game: Game }>();
 
-const date = computed(() => new Intl.DateTimeFormat("en-GB").format(props.game.lastMoveAt));
-const datetime = computed(() => new Date(props.game.lastMoveAt).toISOString());
+const date = computed(() => {
+	return new Intl.DateTimeFormat("en-GB").format(props.game.lastMoveAt);
+});
 
-const seriousness = computed(() => (props.game.rated ? "Rated" : "Casual"));
+const datetime = computed(() => {
+	return new Date(props.game.lastMoveAt).toISOString();
+});
 
-const speed = computed(() => findVariantLabel(props.game.speed).toLowerCase());
+const seriousness = computed(() => {
+	return props.game.rated ? "Rated" : "Casual";
+});
 
-const variant = computed(
-	() => props.game.variant !== "standard" && findVariantLabel(props.game.perf).toLowerCase()
-);
+const speed = computed(() => {
+	return findVariantLabel(props.game.speed).toLowerCase();
+});
+
+const variant = computed(() => {
+	return props.game.variant !== "standard" && findVariantLabel(props.game.perf).toLowerCase();
+});
 </script>
 
 <template>

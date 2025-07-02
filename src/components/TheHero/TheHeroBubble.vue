@@ -1,5 +1,9 @@
 <script setup lang="ts">
-defineProps(["bubble"]);
+import type { Bubble } from "@/types";
+
+defineProps<{
+	bubble: Bubble;
+}>();
 </script>
 
 <template>

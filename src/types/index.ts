@@ -1,4 +1,11 @@
+export type Bubble = {
+	metric: number;
+	lines: string[];
+	class?: string;
+};
+
 export type SortSide = "target" | "opponent" | "combined";
+
 export type SortOrder = "ascending" | "descending";
 
 // Lichess Types
@@ -91,4 +98,5 @@ export type Game = {
 		black: Player;
 	};
 	winner?: Color;
+	lastFen: string;
 };
