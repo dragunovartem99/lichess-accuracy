@@ -1,11 +1,16 @@
 <script setup lang="ts">
-import type { GameStatus } from "@/types";
+import type { Game, GameStatus } from "@/types";
 
-import { computed } from "vue";
-const props = defineProps(["game", "flipped", "targetId"]);
+import { computed, type Ref } from "vue";
+
+const props = defineProps<{
+	game: Game;
+	flipped: string | null;
+	targetId: Ref<string>;
+}>();
 
 const termination = computed(() => {
-	const status: GameStatus = props.game.status;
+	const status = props.game.status;
 
 	const options: Partial<Record<GameStatus, string>> = {
 		mate: "Checkmate",
@@ -21,17 +26,21 @@ const termination = computed(() => {
 	return options[status] ?? status;
 });
 
-const result = computed(() =>
-	props.game.winner
-		? props.game.players[props.game.winner].user?.id === props.targetId.value
-			? "Won"
-			: "Lost"
-		: "Draw"
-);
+const result = computed(() => {
+	const winner = props.game.winner;
+	const hasWinner = Boolean(winner);
 
-const link = computed(
-	() => `https://lichess.org/${props.game.id}` + (props.flipped ? "/black" : "")
-);
+	if (hasWinner) {
+		const isWinner = props.game.players[winner!].user?.id === props.targetId.value;
+		return isWinner ? "Won" : "Lost";
+	} else {
+		return "Draw";
+	}
+});
+
+const link = computed(() => {
+	return `https://lichess.org/${props.game.id}` + (props.flipped ? "/black" : "");
+});
 </script>
 
 <template>

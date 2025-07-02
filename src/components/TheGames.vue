@@ -4,7 +4,10 @@ import * as games from "@/state/games";
 import { sortedGames } from "@/modules/sort";
 import TheGame from "./TheGame/TheGame.vue";
 import TheSort from "./TheSort.vue";
-const items = computed(() => (games.isFetching.value ? games.list : sortedGames.value));
+
+const items = computed(() => {
+	return games.isFetching.value ? games.list : sortedGames.value;
+});
 </script>
 
 <template>
