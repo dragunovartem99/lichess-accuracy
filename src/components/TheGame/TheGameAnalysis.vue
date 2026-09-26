@@ -9,7 +9,11 @@ const failures: Array<keyof Analysis> = ["blunder", "mistake", "inaccuracy"];
 <template>
 	<div class="analysis">
 		<template v-for="failure of failures">
-			<p class="point" :class="failure" v-if="analysis[failure]">
+			<p
+				class="point"
+				:class="failure"
+				v-if="analysis[failure]"
+			>
 				{{ "&bullet;".repeat(analysis[failure]) }}
 			</p>
 		</template>

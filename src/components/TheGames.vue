@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import * as games from "@/state/games";
+
 import { sortedGames } from "@/modules/sort";
+import * as games from "@/state/games";
+
 import TheGame from "./TheGame/TheGame.vue";
 import TheSort from "./TheSort.vue";
 
@@ -17,15 +19,38 @@ const items = computed(() => {
 			<TheSort />
 		</div>
 		<p v-if="!games.list.length">The game list is empty</p>
-		<div v-else-if="games.list.length < 5" class="games">
-			<div class="item" v-for="game of items">
-				<TheGame :game :key="game.id" />
+		<div
+			v-else-if="games.list.length < 5"
+			class="games"
+		>
+			<div
+				class="item"
+				v-for="game of items"
+			>
+				<TheGame
+					:game
+					:key="game.id"
+				/>
 			</div>
 		</div>
-		<DynamicScroller v-else :items :min-item-size="310" class="games scroller">
+		<DynamicScroller
+			v-else
+			:items
+			:min-item-size="310"
+			class="games scroller"
+		>
 			<template v-slot="{ item: game, index, active }">
-				<DynamicScrollerItem :item="game" :active="active" :data-index="index">
-					<div class="item"><TheGame :game :key="game.id" /></div>
+				<DynamicScrollerItem
+					:item="game"
+					:active="active"
+					:data-index="index"
+				>
+					<div class="item">
+						<TheGame
+							:game
+							:key="game.id"
+						/>
+					</div>
 				</DynamicScrollerItem>
 			</template>
 		</DynamicScroller>

@@ -6,13 +6,12 @@ type Options = {
 };
 
 export function sortByTime({ games, order }: Options) {
-	return [...games].sort((a: Game, b: Game) => {
+	return games.toSorted((a: Game, b: Game) => {
 		if (order === "ascending") {
 			return a.lastMoveAt - b.lastMoveAt;
 		} else if (order === "descending") {
 			return b.lastMoveAt - a.lastMoveAt;
-		} else {
-			return 0;
 		}
+		return 0;
 	});
 }

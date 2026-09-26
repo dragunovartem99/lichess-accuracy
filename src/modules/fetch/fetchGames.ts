@@ -1,10 +1,8 @@
-import type { Game } from "@/types";
-
-import * as target from "@/state/target";
+import { getGames } from "@/api/getGames";
 import * as games from "@/state/games";
 import * as statistics from "@/state/statistics";
-
-import { getGames } from "@/api/getGames";
+import * as target from "@/state/target";
+import type { Game } from "@/types";
 
 export function fetchGames(username: string) {
 	games.isFetching.value = true;

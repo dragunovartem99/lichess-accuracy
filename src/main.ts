@@ -1,17 +1,18 @@
+// HTMLDiagram
+import { HTMLDiagram } from "html-diagram";
 // Vue
 import { createApp } from "vue";
-import App from "./App.vue";
+
 import "./css/main.css";
 
+// Virtual Scroller
+// @ts-expect-error
+import VueVirtualScroller from "vue-virtual-scroller";
+
+import App from "./App.vue";
 // PrimeVue
 import { useUI } from "./ui";
 
-// HTMLDiagram
-import { HTMLDiagram } from "html-diagram";
-
-// Virtual Scroller
-// @ts-ignore
-import VueVirtualScroller from "vue-virtual-scroller";
 import "vue-virtual-scroller/dist/vue-virtual-scroller.css";
 
 customElements.define("html-diagram", HTMLDiagram);

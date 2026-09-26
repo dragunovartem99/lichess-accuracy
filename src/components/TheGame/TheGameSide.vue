@@ -1,7 +1,8 @@
 <script setup lang="ts">
+import { computed } from "vue";
+
 import type { Player } from "@/types";
 
-import { computed } from "vue";
 import TheGameAnalysis from "./TheGameAnalysis.vue";
 
 const props = defineProps<{
@@ -20,9 +21,8 @@ const strength = computed(() => {
 	const rating = props.player.rating;
 	if (rating) {
 		return rating + (props.player.provisional ? "?" : "");
-	} else {
-		return "level " + props.player.aiLevel;
 	}
+	return "level " + props.player.aiLevel;
 });
 
 const ratingDiffType = computed(() => {
@@ -33,12 +33,19 @@ const ratingDiffType = computed(() => {
 <template>
 	<div class="side">
 		<div class="player">
-			<a class="name" :href="link" target="_blank">
+			<a
+				class="name"
+				:href="link"
+				target="_blank"
+			>
 				{{ username }}
 			</a>
 			<p class="rating">
 				{{ strength }}
-				<span :class="ratingDiffType" v-if="player.ratingDiff">
+				<span
+					:class="ratingDiffType"
+					v-if="player.ratingDiff"
+				>
 					{{ player.ratingDiff }}
 				</span>
 			</p>

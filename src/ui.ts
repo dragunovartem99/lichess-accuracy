@@ -1,8 +1,7 @@
-import type { App } from "vue";
-
 import { definePreset } from "@primeuix/themes";
-import PrimeVue from "primevue/config";
 import Aura from "@primeuix/themes/aura";
+import PrimeVue from "primevue/config";
+import type { App } from "vue";
 
 const colors = {
 	0: "#ffffff",

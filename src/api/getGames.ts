@@ -1,8 +1,8 @@
-import type { Game } from "@/types";
-import { readStream } from "@/utils/readStream";
 import { options as request } from "@/modules/request";
-import { normalizeRequestOptions } from "@/utils/normalizeRequestOptions";
 import { apiUrl } from "@/static/apiUrl";
+import type { Game } from "@/types";
+import { normalizeRequestOptions } from "@/utils/normalizeRequestOptions";
+import { readStream } from "@/utils/readStream";
 
 type Options = {
 	username: string;

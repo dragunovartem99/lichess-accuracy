@@ -17,6 +17,7 @@ export const readStream = (processLine: any) => (response: any) => {
 		stream.read().then(({ done, value }: any) => {
 			if (done) {
 				if (buf.length > 0) processLine(JSON.parse(buf));
+				return undefined;
 			} else {
 				const chunk = decoder.decode(value, {
 					stream: true,

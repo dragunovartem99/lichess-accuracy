@@ -1,13 +1,14 @@
 <script setup lang="ts">
+import DatePicker from "primevue/datepicker";
+import InputText from "primevue/inputtext";
+import MultiSelect from "primevue/multiselect";
+import Select from "primevue/select";
 import { ref } from "vue";
+
 import { options, summary } from "@/modules/request";
 import { gameVariants } from "@/static/gameVariants";
 
 import FormControl from "./Form/FormControl.vue";
-import InputText from "primevue/inputtext";
-import Select from "primevue/select";
-import MultiSelect from "primevue/multiselect";
-import DatePicker from "primevue/datepicker";
 
 const variants = ref(gameVariants);
 

@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import { fetchGames, fetchSuggestions } from "@/modules/fetch";
-import { isFetching } from "@/state/games";
-
 import AutoComplete from "primevue/autocomplete";
 import Button from "primevue/button";
 import InputGroup from "primevue/inputgroup";
+import { ref } from "vue";
+
+import { fetchGames, fetchSuggestions } from "@/modules/fetch";
+import { isFetching } from "@/state/games";
 
 const username = ref("");
 const suggestions = ref([]);
@@ -28,7 +28,11 @@ const suggest = async () => (suggestions.value = await fetchSuggestions(username
 				:suggestions
 				force-selection
 			/>
-			<Button label="Analysis" @click="search" :loading="isFetching" />
+			<Button
+				label="Analysis"
+				@click="search"
+				:loading="isFetching"
+			/>
 		</InputGroup>
 	</div>
 </template>

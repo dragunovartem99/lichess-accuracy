@@ -1,5 +1,7 @@
-import type { Analysis, Game } from "@/types";
 import { computed, reactive } from "vue";
+
+import type { Analysis, Game } from "@/types";
+
 import * as games from "./games";
 
 const total = reactive({ accuracy: 0, acpl: 0, inaccuracy: 0, mistake: 0, blunder: 0 });
@@ -16,11 +18,11 @@ export const average = computed(() => ({
 
 export function count({ game, targetId }: { game: Game; targetId: string }) {
 	const color = game.players.white.user?.id === targetId ? "white" : "black";
-	// @ts-ignore
+	// @ts-expect-error
 	Object.keys(total).forEach((metric) => (total[metric] += game.players[color].analysis[metric]));
 }
 
 export function clear() {
-	// @ts-ignore
+	// @ts-expect-error
 	Object.keys(total).forEach((metric) => (total[metric] = 0));
 }

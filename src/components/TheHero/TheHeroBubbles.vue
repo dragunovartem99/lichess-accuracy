@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import TheHeroBubble from "./TheHeroBubble.vue";
-
-import type { Analysis, Bubble } from "@/types";
-
 import { computed } from "vue";
+
 import * as games from "@/state/games";
 import * as statisitics from "@/state/statistics";
+import type { Analysis, Bubble } from "@/types";
+
+import TheHeroBubble from "./TheHeroBubble.vue";
 
 const format = (metric: string) => {
 	const value = statisitics.average.value[metric as keyof Analysis];
@@ -23,7 +23,10 @@ const bubbles = computed<Bubble[]>(() => [
 </script>
 
 <template>
-	<TheHeroBubble v-for="bubble of bubbles" :bubble />
+	<TheHeroBubble
+		v-for="bubble of bubbles"
+		:bubble
+	/>
 </template>
 
 <style>

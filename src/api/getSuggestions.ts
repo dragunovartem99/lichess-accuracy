@@ -1,7 +1,7 @@
 import { apiUrl } from "@/static/apiUrl";
 
 export async function getSuggestions(username: string) {
-	//  @ts-ignore: boolean bla-bla-bla
+	//  @ts-expect-error: boolean bla-bla-bla
 	const params = new URLSearchParams({
 		object: true,
 		term: username,
