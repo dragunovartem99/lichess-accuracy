@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import type { Game } from "@/types";
 import { computed } from "vue";
+
+import type { Game } from "@/types";
 import { findVariantLabel } from "@/utils/findVariantLabel";
 
 const props = defineProps<{ game: Game }>();

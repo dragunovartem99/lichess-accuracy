@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import type { Game, GameStatus } from "@/types";
+import { computed } from "vue";
+import type { Ref } from "vue";
 
-import { computed, type Ref } from "vue";
+import type { Game, GameStatus } from "@/types";
 
 const props = defineProps<{
 	game: Game;
@@ -33,9 +34,8 @@ const result = computed(() => {
 	if (hasWinner) {
 		const isWinner = props.game.players[winner!].user?.id === props.targetId.value;
 		return isWinner ? "Won" : "Lost";
-	} else {
-		return "Draw";
 	}
+	return "Draw";
 });
 
 const link = computed(() => {
@@ -46,8 +46,15 @@ const link = computed(() => {
 <template>
 	<figure class="result">
 		<p>{{ result }}</p>
-		<a :href="link" target="_blank">
-			<html-diagram :fen="game.lastFen" :flipped colored></html-diagram>
+		<a
+			:href="link"
+			target="_blank"
+		>
+			<html-diagram
+				:fen="game.lastFen"
+				:flipped
+				colored
+			></html-diagram>
 		</a>
 		<p>{{ termination }}</p>
 	</figure>

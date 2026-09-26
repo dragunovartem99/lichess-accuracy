@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { Game } from "@/types";
-
 import { computed } from "vue";
+
 import * as target from "@/state/target";
+import type { Game } from "@/types";
 
 import TheGameMeta from "./TheGameMeta.vue";
 import TheGameResult from "./TheGameResult.vue";
@@ -17,9 +17,21 @@ const flipped = computed(() =>
 
 <template>
 	<article :class="flipped">
-		<TheGameMeta class="game-meta" :game />
-		<TheGameResult class="game-result" :game :flipped :target-id="target.id" />
-		<TheGameSide class="game-side" v-for="player of game.players" :player />
+		<TheGameMeta
+			class="game-meta"
+			:game
+		/>
+		<TheGameResult
+			class="game-result"
+			:game
+			:flipped
+			:target-id="target.id"
+		/>
+		<TheGameSide
+			class="game-side"
+			v-for="player of game.players"
+			:player
+		/>
 	</article>
 </template>
 

@@ -54,7 +54,10 @@ const columns: [MainColumn, ...AuxColumn[]] = [
 	<footer>
 		<div class="columns container-wide">
 			<div v-for="column of columns">
-				<p class="title" v-if="(column as MainColumn).title">
+				<p
+					class="title"
+					v-if="(column as MainColumn).title"
+				>
 					<img
 						:src="(column as MainColumn).title.img.src"
 						:alt="(column as MainColumn).title.img.alt"
@@ -62,7 +65,11 @@ const columns: [MainColumn, ...AuxColumn[]] = [
 					{{ (column as MainColumn).title.heading }}
 				</p>
 				<p v-else>{{ (column as AuxColumn).heading }}</p>
-				<a v-for="link of column.links" :href="link.href" target="_blank">
+				<a
+					v-for="link of column.links"
+					:href="link.href"
+					target="_blank"
+				>
 					{{ link.label }}
 				</a>
 			</div>
