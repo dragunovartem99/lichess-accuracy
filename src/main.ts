@@ -6,7 +6,6 @@ import { createApp } from "vue";
 import "./css/main.css";
 
 // Virtual Scroller
-// @ts-expect-error
 import VueVirtualScroller from "vue-virtual-scroller";
 
 import App from "./App.vue";
