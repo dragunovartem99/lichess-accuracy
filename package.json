@@ -42,7 +42,7 @@
 		"@dragunovartem99/oxfmt-config": "^2.1.0",
 		"@dragunovartem99/oxlint-config": "^3.0.1",
 		"@types/node": "^24.0.0",
-		"@vitejs/plugin-vue": "^5.2.1",
+		"@vitejs/plugin-vue": "^6.0.0",
 		"@vue/tsconfig": "^0.7.0",
 		"husky": "^9.1.7",
 		"oxfmt": "^0.70.0",
