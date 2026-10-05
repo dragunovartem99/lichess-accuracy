@@ -41,7 +41,7 @@
 		"@dragunovartem99/flow": "^0.1.1",
 		"@dragunovartem99/oxfmt-config": "^2.1.0",
 		"@dragunovartem99/oxlint-config": "^3.0.1",
-		"@types/node": "^22.13.5",
+		"@types/node": "^24.0.0",
 		"@vitejs/plugin-vue": "^5.2.1",
 		"@vue/tsconfig": "^0.7.0",
 		"husky": "^9.1.7",
